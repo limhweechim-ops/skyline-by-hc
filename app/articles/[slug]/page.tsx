@@ -1,11 +1,15 @@
-import type { Metadata } from "next"; import { notFound } from "next/navigation"; import Link from "next/link"; import { Shell } from "../../components"; import { articles } from "../../content";
+import type { Metadata } from "next"; import { notFound } from "next/navigation"; import Image from "next/image"; import Link from "next/link"; import { Shell } from "../../components"; import { articles } from "../../content";
 export function generateStaticParams(){return articles.map(a=>({slug:a.slug}))}
-export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params;const a=articles.find(x=>x.slug===slug);return a?{title:`${a.title} | Skyline by HC`,description:a.dek,alternates:{canonical:`/articles/${a.slug}`},openGraph:{title:a.title,description:a.dek,type:"article"}}:{}}
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params;const a=articles.find(x=>x.slug===slug);return a?{title:`${a.title} | Skyline by HC`,description:a.dek,alternates:{canonical:`/articles/${a.slug}`},openGraph:{title:a.title,description:a.dek,type:"article",images:slug==="top-90-day-stress-test"?[{url:"/images/articles/top-90-day-stress-test/towers-nearing-top.webp",width:1010,height:747,alt:"Residential towers nearing TOP during the final stage of construction"}]:undefined}}:{}}
 
 function TopArticle(){return <>
   <p className="lead">The last tower crane came down over a weekend. By Monday, the site looked finished from the road: hoarding still up, the skyline above it complete, the towers finally matching the artist&apos;s impression released more than two and a half years earlier.</p>
   <p>There were about six months of work left. The last ninety of those days would decide whether the first ninety had been used properly.</p>
   <p>I used to record the cranes leaving as a milestone. It is closer to a starting gun for the part nobody photographs.</p>
+  <figure className="article-image article-image-wide">
+    <Image src="/images/articles/top-90-day-stress-test/towers-nearing-top.webp" alt="Residential towers nearing TOP during the final stage of construction" width={1010} height={747} sizes="(max-width: 800px) 90vw, 900px" priority />
+    <figcaption>The skyline may look complete while the most demanding coordination and commissioning work is still ahead.</figcaption>
+  </figure>
   <p>On that project—1,008 units—TOP was not one inspection but a series of them. BCA, SCDF, NEA and PUB, each with its own date, its own queue and its own view of what a complete submission looks like. Every clearance had to close before the final stack could be filed at all.</p>
   <p>Each inspection lasts about a day. Preparing for each one takes the whole team days and nights: cleaning, protecting, re-checking, walking the route the officer will walk before the officer walks it. Then it happens again for the next agency.</p>
   <p>The certificate itself was issued the same day the stack went in. It took a day to issue and four years to deserve.</p>
@@ -14,6 +18,10 @@ function TopArticle(){return <>
   <h2>The Illusion of Completion</h2>
   <p>With the cranes and passenger hoists removed six months before the targeted TOP, the buildings appeared completed, yet the development was far from it.</p>
   <p>From the road the project looks done. Up close, the towers may be substantially complete while the spaces residents will actually use are still taking shape: clubhouse, pools, playgrounds, arrival court, landscape, guardhouse, pavilions and function rooms. These come late.</p>
+  <figure className="article-image article-image-wide">
+    <Image src="/images/articles/top-90-day-stress-test/amenity-deck-final-works.webp" alt="Construction team carrying out final works around a residential swimming pool and amenity deck" width={720} height={531} sizes="(max-width: 800px) 90vw, 900px" />
+    <figcaption>The towers can appear finished while the non-repetitive amenity deck is still being completed and checked.</figcaption>
+  </figure>
   <p>Unlike the residential floors, they do not repeat.</p>
   <p>A typical floor is built thirty or forty times. Catch a problem on floor six and you have thirty chances to get it right. Repetition is its own quality system.</p>
   <p>The amenity deck offers no such mercy. A curved handrail at a ramp appears exactly once. So does the feature staircase, the water wall, the sunken lounge, the three-way interface between landscape, structure and drainage where the falls have to work in both directions. Each has to be understood, coordinated and built correctly the first time. By the time a mistake is visible, the work around it is finished.</p>
@@ -65,9 +73,18 @@ function TopArticle(){return <>
 
   <h2>One Thousand and Eight Units</h2>
   <p>The final quality clearance is not a single inspection date either. CONQUAS assesses a sample. The Quality Mark does not—all 1,008 units are assessed and closed out individually.</p>
+  <figure className="article-image article-image-portrait">
+    <Image src="/images/articles/top-90-day-stress-test/unit-quality-inspection.webp" alt="Project team conducting a detailed quality inspection inside a completed residential bathroom" width={422} height={565} sizes="(max-width: 800px) 82vw, 520px" />
+    <figcaption>Unit-level quality closure is detailed, repetitive and dependent on access being sequenced well before TOP.</figcaption>
+  </figure>
   <p>That means sequencing access to 1,008 units: finishes complete, work protected, assessment arranged, observations closed, batches re-presented where necessary. None of it can start in the final ninety days. On this scale the programme has to begin one to two years before TOP, while construction is still running elsewhere on site. It is not a task that responds to urgency.</p>
   <p>The visible deadline is TOP. The real programme starts much earlier.</p>
   <p>This project carried one more layer. We had signed on to the pilot Whole-of-Government inspection framework with BCA, which requires the separate agency inspections to converge through one coordinated process rather than arriving in their own time. It turned a demanding completion phase into a more interesting stress test than the one we had planned for. That deserves an essay of its own, once the lessons have settled.</p>
+
+  <figure className="article-image article-image-wide">
+    <Image src="/images/articles/top-90-day-stress-test/completed-pool-deck.webp" alt="Completed residential towers and landscaped swimming pool after the final construction works" width={640} height={468} sizes="(max-width: 800px) 90vw, 900px" />
+    <figcaption>The finished development is the visible outcome; the years of sequencing, testing and closure behind it are not.</figcaption>
+  </figure>
 
   <h2>What TOP Actually Tests</h2>
   <p>TOP looks like the end of construction. It is closer to an audit of whether decisions made by different people over several years can converge into one working outcome.</p>
@@ -75,6 +92,10 @@ function TopArticle(){return <>
   <blockquote>Nothing happens. That is the value.</blockquote>
   <p>TOP was issued within hours of the final submission, and after the preceding months it felt almost anticlimactic. There was no decisive act. The project was ready because a large number of people had been quietly closing small gaps for a very long time. The inspections took days. The preparation took years.</p>
   <p>TOP is not really an inspection. It is the point at which a project can no longer hide the quality of everything that came before it.</p>
+  <figure className="article-image article-image-wide article-image-closing">
+    <Image src="/images/articles/top-90-day-stress-test/completed-residential-facade.webp" alt="Completed residential tower facade seen from below against a clear blue sky" width={992} height={742} sizes="(max-width: 800px) 90vw, 900px" />
+    <figcaption>A completed façade records the final result, but not the small upstream decisions that made timely completion possible.</figcaption>
+  </figure>
   <p className="original-note">Originally published on <a href="https://www.linkedin.com/pulse/top-90-day-stress-test-hwee-chim-lim-0nz0c/" target="_blank" rel="noreferrer">LinkedIn</a> on 30 July 2026.</p>
   <p className="author-note">Lim Hwee Chim is a Singapore property development leader and the founder of Skyline by HC, where she writes about how upstream developer decisions shape construction outcomes.</p>
 </>}
