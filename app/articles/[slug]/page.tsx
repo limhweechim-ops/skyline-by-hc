@@ -2,6 +2,83 @@ import type { Metadata } from "next"; import { notFound } from "next/navigation"
 export function generateStaticParams(){return articles.map(a=>({slug:a.slug}))}
 export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params;const a=articles.find(x=>x.slug===slug);return a?{title:`${a.title} | Skyline by HC`,description:a.dek,alternates:{canonical:`/articles/${a.slug}`},openGraph:{title:a.title,description:a.dek,type:"article"}}:{}}
 
+function TopArticle(){return <>
+  <p className="lead">The last tower crane came down over a weekend. By Monday, the site looked finished from the road: hoarding still up, the skyline above it complete, the towers finally matching the artist&apos;s impression released more than two and a half years earlier.</p>
+  <p>There were about six months of work left. The last ninety of those days would decide whether the first ninety had been used properly.</p>
+  <p>I used to record the cranes leaving as a milestone. It is closer to a starting gun for the part nobody photographs.</p>
+  <p>On that project—1,008 units—TOP was not one inspection but a series of them. BCA, SCDF, NEA and PUB, each with its own date, its own queue and its own view of what a complete submission looks like. Every clearance had to close before the final stack could be filed at all.</p>
+  <p>Each inspection lasts about a day. Preparing for each one takes the whole team days and nights: cleaning, protecting, re-checking, walking the route the officer will walk before the officer walks it. Then it happens again for the next agency.</p>
+  <p>The certificate itself was issued the same day the stack went in. It took a day to issue and four years to deserve.</p>
+  <p>People assume TOP is an inspection. It is a sequence of them, and the outcome of each is settled long before the date is booked.</p>
+
+  <h2>The Illusion of Completion</h2>
+  <p>With the cranes and passenger hoists removed six months before the targeted TOP, the buildings appeared completed, yet the development was far from it.</p>
+  <p>From the road the project looks done. Up close, the towers may be substantially complete while the spaces residents will actually use are still taking shape: clubhouse, pools, playgrounds, arrival court, landscape, guardhouse, pavilions and function rooms. These come late.</p>
+  <p>Unlike the residential floors, they do not repeat.</p>
+  <p>A typical floor is built thirty or forty times. Catch a problem on floor six and you have thirty chances to get it right. Repetition is its own quality system.</p>
+  <p>The amenity deck offers no such mercy. A curved handrail at a ramp appears exactly once. So does the feature staircase, the water wall, the sunken lounge, the three-way interface between landscape, structure and drainage where the falls have to work in both directions. Each has to be understood, coordinated and built correctly the first time. By the time a mistake is visible, the work around it is finished.</p>
+  <p>This is why standardisation matters even on projects that want to feel distinctive. Consistent door families, railing details and interfaces are not a tax on design intent. They reduce the number of things the site team has to interpret from scratch, at the point where interpretation is most expensive.</p>
+  <blockquote>Creativity sets the character of a project. Consistency delivers it.</blockquote>
+
+  <h2>When Sequence Becomes Everything</h2>
+  <p>For most of construction, progress is visible. Structure rises. Façades close. Rooms take shape. You can measure what has been cast and installed.</p>
+  <p>The final months are different.</p>
+  <p>Sprinklers wait for ceilings. Ceilings wait for services to be tested. Testing waits for permanent power, which waits for the LEW&apos;s endorsement and a switchroom that is clean, dry and locked. Condensers wait for ledges. Lift commissioning waits for water ingress to be resolved. Landscape planting waits for heavy access to stop, and the same landscape may be needed for a clearance.</p>
+  <p>Float disappears. A three-day delay is rarely a three-day delay: it blocks the next trade, moves a test date, and spends a recovery window that no longer exists.</p>
+  <p>The remaining work is not more technically difficult. It is difficult because the team has fewer choices left.</p>
+  <p>A design issue found two years out has several solutions. The same issue found two weeks before inspection has one, and it is never the cheap one.</p>
+  <p>Time lost upstream does not disappear. It comes back near TOP as extra manpower, repeated testing, temporary protection, night work, and decisions made faster than anyone would like.</p>
+
+  <h2>From Building to System</h2>
+  <p>About ninety days out, the project stops behaving like a collection of buildings and starts behaving like one system.</p>
+  <p>For years the meetings were about physical progress: concrete, façade closure, finishes, percentage complete. Then the conversation changes.</p>
+  <p>Lifts must home correctly when the alarm is triggered. The generator must pick up load, not merely start. Staircase pressurisation must hold with the doors open, which is the condition that matters and the one people forget to test. Access-controlled doors must release on the right emergency signal, and only that one.</p>
+  <p>Every component works. That is not the same as the building working.</p>
+  <p>TOP exposes the interfaces. The fire alarm panel works. The lift works. The problem appears only when the alarm sounds and the lift goes nowhere in particular. That failure sits inside nobody&apos;s package. It lives between packages, drawings and scopes, which is exactly why nobody has been chasing it.</p>
+  <p>Near TOP, the building stops being a collection of completed components. Each fan, alarm and control sequence must work as part of one system.</p>
+  <p>This is why the last ninety days feel disproportionate to the work remaining. The project is no longer testing whether the trades finished. It is testing whether they can coexist.</p>
+
+  <h2>The Least Damaging Compliant Answer</h2>
+  <p>A pipe, duct or bracket may have been installed slightly differently from the coordinated drawing. Found early, the response is simple: identify, correct, continue.</p>
+  <p>Found near TOP, the ceiling above it is closed, the finishes are done, and the adjacent systems have already passed testing. Restoring the drawing means reopening finished work that is performing perfectly well.</p>
+  <p>Sometimes that is still the right answer.</p>
+  <p>More often the controlled solution is to verify that the installed element is sound and code-compliant, then move the coordination around it. This is uncomfortable. The item that ignored the drawing stays. Everything that followed the drawing moves. Complex systems do not optimise for fairness between trades. They optimise for the most stable outcome available.</p>
+  <p>The compliance standard does not move. The revised arrangement is still reviewed, documented, endorsed and tested. Only the route changes.</p>
+  <p>Near TOP, leadership is rarely about finding the perfect answer. It is about choosing the least damaging compliant one, and being able to stand behind it afterwards.</p>
+
+  <h2>What Rain Finds</h2>
+  <p>Rain does not read the programme. It finds the weak point, and near TOP that honesty gets expensive.</p>
+  <p>Water in an unfinished basement is manageable. Water in a lift pit, an electrical room or a completed finish stops testing and starts a cycle of drying, investigation, rectification and retesting.</p>
+  <p>Rain is almost never the cause. It exposes a construction joint nobody resolved, a waterproofing interface buried behind later work, a temporary opening left open too long, a sequence compressed before the building was protected.</p>
+  <p>By the time the leak appears, the decision behind it is months old. The weather takes the blame because the weather is visible.</p>
+
+  <h2>The Evidence Behind the Building</h2>
+  <p>A project can look ready and still be unable to obtain TOP.</p>
+  <p>The building is only part of the evidence. The team also has to produce as-built drawings, test and commissioning records, the QP&apos;s endorsements, and clearances it does not control—fire safety, lift permits, drainage and sanitary, vector control. None of them can be accelerated by pressure, and any one of them can hold the whole stack.</p>
+  <p>These records get treated as administration to tidy up afterwards. That is an expensive assumption. Test results take time to compile. As-built drawings have to show what was installed, not the tender drawings with a new title block. If documentation only begins when the physical work ends, the project may find that the evidence it holds no longer matches the building it built.</p>
+  <p>Authorities cannot approve what the team cannot substantiate. An unfinished wall has someone standing in front of it. A missing test record has nobody, and stays missing until the submission is being assembled.</p>
+
+  <h2>The Authority Lens</h2>
+  <p>Developers, consultants and contractors experience a project through delivery. We remember the late nights, the manpower shortfalls, the design changes, the problems solved along the way.</p>
+  <p>The officer sees none of that, and should not. The question is not what the project endured. It is whether the completed development is safe, functional and fit to be occupied. Effort is not evidence.</p>
+  <p>This feels severe in the final weeks, when everyone is exhausted and one observation threatens another round of work. The distance is the point. Residents inherit the building, not the difficulty of building it.</p>
+
+  <h2>One Thousand and Eight Units</h2>
+  <p>The final quality clearance is not a single inspection date either. CONQUAS assesses a sample. The Quality Mark does not—all 1,008 units are assessed and closed out individually.</p>
+  <p>That means sequencing access to 1,008 units: finishes complete, work protected, assessment arranged, observations closed, batches re-presented where necessary. None of it can start in the final ninety days. On this scale the programme has to begin one to two years before TOP, while construction is still running elsewhere on site. It is not a task that responds to urgency.</p>
+  <p>The visible deadline is TOP. The real programme starts much earlier.</p>
+  <p>This project carried one more layer. We had signed on to the pilot Whole-of-Government inspection framework with BCA, which requires the separate agency inspections to converge through one coordinated process rather than arriving in their own time. It turned a demanding completion phase into a more interesting stress test than the one we had planned for. That deserves an essay of its own, once the lessons have settled.</p>
+
+  <h2>What TOP Actually Tests</h2>
+  <p>TOP looks like the end of construction. It is closer to an audit of whether decisions made by different people over several years can converge into one working outcome.</p>
+  <p>The most valuable interventions are invisible by then. A design interface resolved early does not appear on any checklist. Neither does the dry-run test arranged before the formal one, the opening sealed before the monsoon, or the documentation gap caught months before submission.</p>
+  <blockquote>Nothing happens. That is the value.</blockquote>
+  <p>TOP was issued within hours of the final submission, and after the preceding months it felt almost anticlimactic. There was no decisive act. The project was ready because a large number of people had been quietly closing small gaps for a very long time. The inspections took days. The preparation took years.</p>
+  <p>TOP is not really an inspection. It is the point at which a project can no longer hide the quality of everything that came before it.</p>
+  <p className="original-note">Originally published on <a href="https://www.linkedin.com/pulse/top-90-day-stress-test-hwee-chim-lim-0nz0c/" target="_blank" rel="noreferrer">LinkedIn</a> on 30 July 2026.</p>
+  <p className="author-note">Lim Hwee Chim is a Singapore property development leader and the founder of Skyline by HC, where she writes about how upstream developer decisions shape construction outcomes.</p>
+</>}
+
 function BetArticle(){return <>
   <p className="lead">The scheme made advanced construction commercially attractive to developers. As yesterday’s innovations become today’s baseline, what should the next incentive reward?</p>
   <p>Three percent sounds small until someone draws it.</p>
@@ -64,4 +141,4 @@ function BetArticle(){return <>
   <p className="author-note">Lim Hwee Chim is a Singapore property development leader and the founder of Skyline by HC, where she writes about how upstream developer decisions shape construction outcomes.</p>
 </>}
 
-export default async function Article({params}:{params:Promise<{slug:string}>}){const {slug}=await params; const a=articles.find(x=>x.slug===slug); if(!a)notFound(); return <Shell><article className="article-page"><header><p className="eyebrow">{a.topic}</p><h1>{a.title}</h1><p className="standfirst">{a.dek}</p><div className="byline"><span>By Lim Hwee Chim</span><span>{a.date} · {a.read} read</span></div></header><div className="article-body">{slug==="bet-is-expiring"?<BetArticle/>:<><p className="lead">The visible problem usually arrives late. A deadline slips, an interface fails, or a new system cannot be commissioned as intended. By then, the project is already paying for decisions made much earlier.</p><p>This essay forms part of the Skyline by HC launch collection. The full original article will be migrated here as the website becomes the permanent home of the archive.</p><h2>The upstream question</h2><p>Construction performance is often discussed as if productivity begins at the workface. But contractors execute within conditions shaped by development strategy, authority sequencing, design maturity, procurement and the quality of information that reaches them.</p><blockquote>Upstream compression does not disappear. It reappears downstream at greater cost.</blockquote><p>The practical task is not to assign blame upstream. It is to find the earliest point where a clearer decision, interface or feedback loop could materially change the outcome—and to test whether that intervention is proportionate to its cost.</p><div className="takeaway"><span>Practitioner takeaway</span><strong>Look for the first missing decision, not only the final visible failure.</strong></div><p className="author-note">Lim Hwee Chim is a Singapore property development leader and the founder of Skyline by HC, where she writes about how upstream developer decisions shape construction outcomes.</p></>}</div></article><section className="next-read"><p className="eyebrow">Continue reading</p><Link href="/articles">Explore the full article library <span>→</span></Link></section></Shell>}
+export default async function Article({params}:{params:Promise<{slug:string}>}){const {slug}=await params; const a=articles.find(x=>x.slug===slug); if(!a)notFound(); return <Shell><article className="article-page"><header><p className="eyebrow">{a.topic}</p><h1>{a.title}</h1><p className="standfirst">{a.dek}</p><div className="byline"><span>By Lim Hwee Chim</span><span>{a.date} · {a.read} read</span></div></header><div className="article-body">{slug==="bet-is-expiring"?<BetArticle/>:slug==="top-90-day-stress-test"?<TopArticle/>:<><p className="lead">The visible problem usually arrives late. A deadline slips, an interface fails, or a new system cannot be commissioned as intended. By then, the project is already paying for decisions made much earlier.</p><p>This essay forms part of the Skyline by HC launch collection. The full original article will be migrated here as the website becomes the permanent home of the archive.</p><h2>The upstream question</h2><p>Construction performance is often discussed as if productivity begins at the workface. But contractors execute within conditions shaped by development strategy, authority sequencing, design maturity, procurement and the quality of information that reaches them.</p><blockquote>Upstream compression does not disappear. It reappears downstream at greater cost.</blockquote><p>The practical task is not to assign blame upstream. It is to find the earliest point where a clearer decision, interface or feedback loop could materially change the outcome—and to test whether that intervention is proportionate to its cost.</p><div className="takeaway"><span>Practitioner takeaway</span><strong>Look for the first missing decision, not only the final visible failure.</strong></div><p className="author-note">Lim Hwee Chim is a Singapore property development leader and the founder of Skyline by HC, where she writes about how upstream developer decisions shape construction outcomes.</p></>}</div></article><section className="next-read"><p className="eyebrow">Continue reading</p><Link href="/articles">Explore the full article library <span>→</span></Link></section></Shell>}
