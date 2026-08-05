@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.astro/
+.next/
+.vercel/
+.wrangler/
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.log
+npm-debug.log*
+.vscode/
+.idea/
