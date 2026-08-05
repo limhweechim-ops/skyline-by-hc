@@ -1,0 +1,16 @@
+export const topics = [
+  { slug: "developer-leadership", title: "Developer Leadership", text: "Upstream decisions, procurement, governance and the conditions developers create for delivery." },
+  { slug: "construction-delivery", title: "Construction Delivery", text: "Interfaces, coordination, testing, commissioning and the difficult final stretch to completion." },
+  { slug: "technology-productivity", title: "Technology & Productivity", text: "Industrialised construction, AI and digital tools—judged by how well they integrate into real projects." },
+  { slug: "policy-regulation", title: "Policy & Regulation", text: "How well-intended rules meet project realities, and what practitioners can learn from the friction." },
+  { slug: "sustainability", title: "Sustainability & the Built Environment", text: "Practical pathways to better long-term outcomes for projects, neighbourhoods and Singapore." },
+];
+
+export const articles = [
+  { slug: "bet-is-expiring", title: "BET Is Expiring. The Transformation Should Not.", dek: "As Singapore’s BET incentive expires, Lim Hwee Chim examines what should replace it to sustain construction productivity, innovation and industry transformation.", date: "4 Aug 2026", topic: "Policy & Regulation", read: "10 min", featured: true, tags: ["BET", "Construction Productivity", "Built Environment Transformation", "Innovation", "Singapore Construction"], originalUrl: "https://www.linkedin.com/pulse/bet-expiring-transformation-should-hwee-chim-lim-66gwc/" },
+  { slug: "top-90-day-stress-test", title: "TOP: The 90-Day Stress Test", dek: "Completion does not reveal a project’s final problems. It reveals the accumulated consequences of its earlier decisions.", date: "30 Jul 2026", topic: "Construction Delivery", read: "7 min" },
+  { slug: "substation-went-underground", title: "The Substation Went Underground. The Rules Did Not Follow.", dek: "Innovation is rarely blocked by a lack of ideas. More often, the surrounding rules and interfaces have not moved with it.", date: "26 Jul 2026", topic: "Policy & Regulation", read: "6 min" },
+  { slug: "household-shelter-on-the-road", title: "A Household Shelter on the Road", dek: "A PPVC module looks like a product. Its journey to site reveals the coordination discipline behind it.", date: "1 Sep 2026", topic: "Technology & Productivity", read: "5 min" },
+  { slug: "robotic-dog", title: "The Robotic Dog Is the Easy Part", dek: "The harder question is whether the project’s information, roles and workflows are ready to use what it sees.", date: "4 Aug 2026", topic: "Technology & Productivity", read: "5 min" },
+  { slug: "whole-of-government-top", title: "What a Whole-of-Government TOP Really Takes", dek: "The visible milestone is a certificate. The invisible work is years of sequencing, escalation and trust across interfaces.", date: "8 Sep 2026", topic: "Developer Leadership", read: "8 min" },
+];

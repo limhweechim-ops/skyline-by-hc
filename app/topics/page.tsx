@@ -1,0 +1,2 @@
+import { Shell } from "../components"; import { topics } from "../content";
+export default function Topics(){return <Shell><section className="page-hero"><p className="eyebrow">Topics</p><h1>Construction is a connected system.</h1></section><section className="topic-index">{topics.map((t,i)=><article id={t.slug} key={t.slug}><span>{String(i+1).padStart(2,"0")}</span><div><h2>{t.title}</h2><p>{t.text}</p></div><i>↘</i></article>)}</section></Shell>}
