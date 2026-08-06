@@ -15,6 +15,7 @@ const articleSlugs = [
   "contract-matters-timing-more",
   "champagne-lasts-ten-minutes",
   "substation-went-underground",
+  "speed-vs-certainty",
   "household-shelter-on-the-road",
   "robotic-dog",
   "whole-of-government-top",
