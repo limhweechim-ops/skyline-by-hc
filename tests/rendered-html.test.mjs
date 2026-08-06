@@ -11,6 +11,7 @@ const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const articleSlugs = [
   "bet-is-expiring",
   "top-90-day-stress-test",
+  "contract-matters-timing-more",
   "champagne-lasts-ten-minutes",
   "substation-went-underground",
   "household-shelter-on-the-road",
