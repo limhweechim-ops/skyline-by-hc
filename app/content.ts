@@ -1,18 +1,102 @@
 export const topics = [
- "Development Strategy & Procurement",
+  "Development Strategy & Procurement",
   "Construction Delivery & TOP",
   "PPVC, DfMA & Productivity",
   "Policy & Regulation",
 ];
 
 export const articles = [
-  { slug: "bet-is-expiring", title: "BET Is Expiring. The Transformation Should Not.", dek: "As Singapore’s BET incentive expires, Lim Hwee Chim examines what should replace it to sustain construction productivity, innovation and industry transformation.", date: "4 Aug 2026", topic: "Policy & Regulation", read: "10 min", featured: true, tags: ["BET GFA", "Construction Productivity", "BCA", "URA", "Built Environment Transformation", "Innovation", "Singapore Construction"], originalUrl: "https://www.linkedin.com/pulse/bet-expiring-transformation-should-hwee-chim-lim-66gwc/" },
-  { slug: "top-90-day-stress-test", title: "TOP: The 90-Day Stress Test", dek: "Completion does not reveal a project’s final problems. It reveals the accumulated consequences of its earlier decisions.", date: "30 Jul 2026", topic: "Construction Delivery & TOP", read: "7 min" }, tags: ["TOP", "commissioning", "authority clearances", "CONQUAS"]
-  { slug: "building-built-before-reached-site", title: "The Building Was Built Before It Reached Site", dek: "A developer-side account of PPVC as an information and coordination system—from early design decisions and factory production to cross-border logistics and module installation.", date: "28 Jun 2026", topic: "PPVC, DfMA & Productivity", read: "7 min", tags: ["PPVC", "prefabrication", "design coordination", "manufacturing"],
-  { slug: "contract-matters-timing-more", title: "The Contract Matters. The Timing Matters More.", dek: "A developer-side view of SIA, REDAS, ECI and NEC4—and why construction outcomes depend on getting the right information into the room before decisions harden.", date: "14 Jun 2026", topic: "Development Strategy & Procurement", read: "7 min", originalUrl: "https://www.linkedin.com/pulse/contract-matters-timing-more-hwee-chim-lim-ii3wc/" }, tags: ["ECI", "SIA contract", "REDAS", "NEC4", "procurement"]
-  { slug: "champagne-lasts-ten-minutes", title: "The Champagne Lasts Ten Minutes", dek: "Winning a Government Land Sale is not the finish line. It begins five years of compressed decisions across design, approvals, procurement, construction and sales.", date: "10 May 2026", topic: "Development Strategy & Procurement", read: "7 min", tags: ["GLS", "ABSD", "development programme", "project feasibility"]
-  { slug: "substation-went-underground", title: "The Substation Went Underground.", dek: "A planning refinement made basement substations more attractive. The technical discussion that followed shows why planning, fire safety and long-term grid operations have to be considered together.", date: "25 Jul 2026", topic: "Policy & Regulation", read: "9 min", tags: ["basement substation", "URA", "SPPG", "SCDF", "infrastructure"]
-  { slug: "household-shelter-on-the-road", title: "A Household Shelter on the Road", dek: "A PPVC module looks like a product. Its journey to site reveals the coordination discipline behind it.", date: "1 Sep 2026", topic: "PPVC, DfMA & Productivity", read: "5 min" },
-  { slug: "robotic-dog", title: "The Robotic Dog Is the Easy Part", dek: "The harder question is whether the project’s information, roles and workflows are ready to use what it sees.", date: "4 Aug 2026", topic: "PPVC, DfMA & Productivity", read: "5 min" },tags: ["construction technology", "AI", "inspection", "information flow"]
-  { slug: "whole-of-government-top", title: "What a Whole-of-Government TOP Really Takes", dek: "The visible milestone is a certificate. The invisible work is years of sequencing, escalation and trust across interfaces.", date: "8 Sep 2026",topic: "Construction Delivery & TOP", read: "8 min" },tags: ["WOG inspection", "authority coordination", "TOP"]
-  { slug: "speed-vs-certainty", title: "Speed vs. Certainty: Why I’m Not Copying China’s Construction Playbook", dek: "What China’s smart construction sites reveal about Singapore’s real productivity challenge: not a technology gap, but information latency across a fragmented ecosystem.", date: "23 Dec 2025", topic: "PPVC, DfMA & Productivity", read: "4 min", tags: ["China construction", "CORENET X", "digitalisation", "information latency"]
+  {
+    slug: "bet-is-expiring",
+    title: "BET Is Expiring. The Transformation Should Not.",
+    dek: "As Singapore’s BET incentive expires, Lim Hwee Chim examines what should replace it to sustain construction productivity, innovation and industry transformation.",
+    date: "4 Aug 2026",
+    topic: "Policy & Regulation",
+    read: "10 min",
+    featured: true,
+    tags: ["BET GFA", "construction transformation", "BCA", "URA"],
+    originalUrl: "https://www.linkedin.com/pulse/bet-expiring-transformation-should-hwee-chim-lim-66gwc/",
+  },
+  {
+    slug: "top-90-day-stress-test",
+    title: "TOP: The 90-Day Stress Test",
+    dek: "Completion does not reveal a project’s final problems. It reveals the accumulated consequences of its earlier decisions.",
+    date: "30 Jul 2026",
+    topic: "Construction Delivery & TOP",
+    read: "7 min",
+    tags: ["TOP", "commissioning", "authority clearances", "CONQUAS"],
+  },
+  {
+    slug: "building-built-before-reached-site",
+    title: "The Building Was Built Before It Reached Site",
+    dek: "A developer-side account of PPVC as an information and coordination system—from early design decisions and factory production to cross-border logistics and module installation.",
+    date: "28 Jun 2026",
+    topic: "PPVC, DfMA & Productivity",
+    read: "7 min",
+    tags: ["PPVC", "prefabrication", "design coordination", "manufacturing"],
+  },
+  {
+    slug: "contract-matters-timing-more",
+    title: "The Contract Matters. The Timing Matters More.",
+    dek: "A developer-side view of SIA, REDAS, ECI and NEC4—and why construction outcomes depend on getting the right information into the room before decisions harden.",
+    date: "14 Jun 2026",
+    topic: "Development Strategy & Procurement",
+    read: "7 min",
+    tags: ["ECI", "SIA contract", "REDAS", "NEC4", "procurement"],
+    originalUrl: "https://www.linkedin.com/pulse/contract-matters-timing-more-hwee-chim-lim-ii3wc/",
+  },
+  {
+    slug: "champagne-lasts-ten-minutes",
+    title: "The Champagne Lasts Ten Minutes",
+    dek: "Winning a Government Land Sale is not the finish line. It begins five years of compressed decisions across design, approvals, procurement, construction and sales.",
+    date: "10 May 2026",
+    topic: "Development Strategy & Procurement",
+    read: "7 min",
+    tags: ["GLS", "ABSD", "development programme", "project feasibility"],
+  },
+  {
+    slug: "substation-went-underground",
+    title: "The Substation Went Underground.",
+    dek: "A planning refinement made basement substations more attractive. The technical discussion that followed shows why planning, fire safety and long-term grid operations have to be considered together.",
+    date: "25 Jul 2026",
+    topic: "Policy & Regulation",
+    read: "9 min",
+    tags: ["basement substation", "URA", "SPPG", "SCDF", "infrastructure"],
+  },
+  {
+    slug: "household-shelter-on-the-road",
+    title: "A Household Shelter on the Road",
+    dek: "A PPVC module looks like a product. Its journey to site reveals the coordination discipline behind it.",
+    date: "1 Sep 2026",
+    topic: "PPVC, DfMA & Productivity",
+    read: "5 min",
+    tags: ["PPVC logistics", "transport", "modular construction"],
+  },
+  {
+    slug: "robotic-dog",
+    title: "The Robotic Dog Is the Easy Part",
+    dek: "The harder question is whether the project’s information, roles and workflows are ready to use what it sees.",
+    date: "4 Aug 2026",
+    topic: "PPVC, DfMA & Productivity",
+    read: "5 min",
+    tags: ["construction technology", "AI", "inspection", "information flow"],
+  },
+  {
+    slug: "whole-of-government-top",
+    title: "What a Whole-of-Government TOP Really Takes",
+    dek: "The visible milestone is a certificate. The invisible work is years of sequencing, escalation and trust across interfaces.",
+    date: "8 Sep 2026",
+    topic: "Construction Delivery & TOP",
+    read: "8 min",
+    tags: ["WOG inspection", "authority coordination", "TOP"],
+  },
+  {
+    slug: "speed-vs-certainty",
+    title: "Speed vs. Certainty: Why I’m Not Copying China’s Construction Playbook",
+    dek: "What China’s smart construction sites reveal about Singapore’s real productivity challenge: not a technology gap, but information latency across a fragmented ecosystem.",
+    date: "23 Dec 2025",
+    topic: "PPVC, DfMA & Productivity",
+    read: "4 min",
+    tags: ["China construction", "CORENET X", "digitalisation", "information latency"],
+  },
+];
