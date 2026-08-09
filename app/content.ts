@@ -1,8 +1,28 @@
 export const topics = [
-  "Development Strategy & Procurement",
-  "Construction Delivery & TOP",
-  "PPVC, DfMA & Productivity",
-  "Policy & Regulation",
+  {
+    slug: "development-strategy-procurement",
+    title: "Development Strategy & Procurement",
+    description:
+      "How early developer decisions, procurement strategy, contracts and risk allocation shape project outcomes.",
+  },
+  {
+    slug: "construction-delivery-top",
+    title: "Construction Delivery & TOP",
+    description:
+      "Practical lessons on construction coordination, authority clearances, commissioning, quality and project completion.",
+  },
+  {
+    slug: "ppvc-dfma-productivity",
+    title: "PPVC, DfMA & Productivity",
+    description:
+      "Why construction productivity depends on design coordination, information continuity, manufacturing and logistics—not technology alone.",
+  },
+  {
+    slug: "policy-regulation",
+    title: "Policy & Regulation",
+    description:
+      "A developer-side view of Singapore’s planning rules, incentives, authority requirements and built-environment transformation.",
+  },
 ];
 
 export const articles = [
