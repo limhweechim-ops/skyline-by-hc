@@ -26,6 +26,7 @@ const publicRoutes = [
   "/articles",
   ...articleSlugs.map((slug) => `/articles/${slug}`),
   "/topics",
+  "/topics/ppvc-dfma-productivity",
   "/speaking",
   "/contact",
 ];
