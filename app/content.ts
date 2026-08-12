@@ -27,13 +27,23 @@ export const topics = [
 
 export const articles = [
   {
+    slug: "aluminium-finish-survive-twice",
+    title: "The Aluminium Finish That Has to Survive Twice",
+    dek: "Why powder coating, PVDF and anodised aluminium can look identical on a sample board—and age nothing alike.",
+    date: "12 Aug 2026",
+    topic: "Construction Delivery & TOP",
+    read: "8 min",
+    featured: true,
+    tags: ["aluminium", "powder coating", "PVDF", "anodising", "façade", "maintainability"],
+    originalUrl: "https://medium.com/@hcl.writes/the-aluminium-finish-that-has-to-survive-twice-42a134fdaf94",
+  },
+  {
     slug: "bet-is-expiring",
     title: "BET Is Expiring. The Transformation Should Not.",
     dek: "As Singapore’s BET incentive expires, Lim Hwee Chim examines what should replace it to sustain construction productivity, innovation and industry transformation.",
     date: "4 Aug 2026",
     topic: "Policy & Regulation",
     read: "10 min",
-    featured: true,
     tags: ["BET GFA", "construction transformation", "BCA", "URA"],
     originalUrl: "https://www.linkedin.com/pulse/bet-expiring-transformation-should-hwee-chim-lim-66gwc/",
   },

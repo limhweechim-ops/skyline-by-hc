@@ -9,6 +9,7 @@ const developmentPreviewMeta =
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const articleSlugs = [
+  "aluminium-finish-survive-twice",
   "bet-is-expiring",
   "top-90-day-stress-test",
   "building-built-before-reached-site",
@@ -27,6 +28,7 @@ const publicRoutes = [
   ...articleSlugs.map((slug) => `/articles/${slug}`),
   "/topics",
   "/topics/development-strategy-procurement",
+  "/topics/construction-delivery-top",
   "/topics/ppvc-dfma-productivity",
   "/speaking",
   "/contact",
@@ -141,5 +143,19 @@ test("development strategy topic hub links to its related articles", async () =>
   assert.match(
     hubHtml,
     /href=["']\/articles\/champagne-lasts-ten-minutes["']/i,
+  );
+});
+
+test("construction delivery topic hub links to the aluminium finish article", async () => {
+  const worker = await loadWorker();
+  const topicsHtml = await (await render(worker, "/topics")).text();
+  const hubHtml = await (
+    await render(worker, "/topics/construction-delivery-top")
+  ).text();
+
+  assert.match(topicsHtml, /href=["']\/topics\/construction-delivery-top["']/i);
+  assert.match(
+    hubHtml,
+    /href=["']\/articles\/aluminium-finish-survive-twice["']/i,
   );
 });

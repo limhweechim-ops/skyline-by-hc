@@ -13,6 +13,7 @@ export default function Topics() {
         {topics.map((topic, index) => {
           const isPublishedHub = [
             "development-strategy-procurement",
+            "construction-delivery-top",
             "ppvc-dfma-productivity",
           ].includes(topic.slug);
           return (
