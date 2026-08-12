@@ -26,6 +26,7 @@ const publicRoutes = [
   "/articles",
   ...articleSlugs.map((slug) => `/articles/${slug}`),
   "/topics",
+  "/topics/development-strategy-procurement",
   "/topics/ppvc-dfma-productivity",
   "/speaking",
   "/contact",
@@ -120,4 +121,25 @@ test("unknown article routes return not found", async () => {
   const worker = await loadWorker();
   const response = await render(worker, "/articles/not-a-real-article");
   assert.equal(response.status, 404);
+});
+
+test("development strategy topic hub links to its related articles", async () => {
+  const worker = await loadWorker();
+  const topicsHtml = await (await render(worker, "/topics")).text();
+  const hubHtml = await (
+    await render(worker, "/topics/development-strategy-procurement")
+  ).text();
+
+  assert.match(
+    topicsHtml,
+    /href=["']\/topics\/development-strategy-procurement["']/i,
+  );
+  assert.match(
+    hubHtml,
+    /href=["']\/articles\/contract-matters-timing-more["']/i,
+  );
+  assert.match(
+    hubHtml,
+    /href=["']\/articles\/champagne-lasts-ten-minutes["']/i,
+  );
 });

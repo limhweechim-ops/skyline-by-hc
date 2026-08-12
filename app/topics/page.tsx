@@ -11,7 +11,10 @@ export default function Topics() {
       </section>
       <section className="topic-index">
         {topics.map((topic, index) => {
-          const isPublishedHub = topic.slug === "ppvc-dfma-productivity";
+          const isPublishedHub = [
+            "development-strategy-procurement",
+            "ppvc-dfma-productivity",
+          ].includes(topic.slug);
           return (
             <article id={topic.slug} key={topic.slug}>
               <span>{String(index + 1).padStart(2, "0")}</span>
