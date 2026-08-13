@@ -15,6 +15,7 @@ export default function Topics() {
             "development-strategy-procurement",
             "construction-delivery-top",
             "ppvc-dfma-productivity",
+            "policy-regulation",
           ].includes(topic.slug);
           return (
             <article id={topic.slug} key={topic.slug}>
