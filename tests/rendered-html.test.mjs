@@ -30,6 +30,7 @@ const publicRoutes = [
   "/topics/development-strategy-procurement",
   "/topics/construction-delivery-top",
   "/topics/ppvc-dfma-productivity",
+  "/topics/policy-regulation",
   "/speaking",
   "/contact",
 ];
@@ -157,5 +158,20 @@ test("construction delivery topic hub links to the aluminium finish article", as
   assert.match(
     hubHtml,
     /href=["']\/articles\/aluminium-finish-survive-twice["']/i,
+  );
+});
+
+test("policy and regulation topic hub links to its related articles", async () => {
+  const worker = await loadWorker();
+  const topicsHtml = await (await render(worker, "/topics")).text();
+  const hubHtml = await (
+    await render(worker, "/topics/policy-regulation")
+  ).text();
+
+  assert.match(topicsHtml, /href=["']\/topics\/policy-regulation["']/i);
+  assert.match(hubHtml, /href=["']\/articles\/bet-is-expiring["']/i);
+  assert.match(
+    hubHtml,
+    /href=["']\/articles\/substation-went-underground["']/i,
   );
 });
