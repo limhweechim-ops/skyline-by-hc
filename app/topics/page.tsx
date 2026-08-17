@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Shell } from "../components";
 import { topics } from "../content";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/topics" },
+};
 
 export default function Topics() {
   return (
