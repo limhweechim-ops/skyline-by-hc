@@ -81,6 +81,19 @@ test("all public pages and article routes render successfully", async () => {
   }
 });
 
+test("every public page declares its own canonical URL", async () => {
+  const worker = await loadWorker();
+
+  for (const route of publicRoutes) {
+    const html = await (await render(worker, route)).text();
+    const canonicalUrl = new URL(route, "https://limhweechim.com").href;
+    assert.ok(
+      html.includes(`rel="canonical" href="${canonicalUrl}"`),
+      `${route} has no self-referencing canonical URL`,
+    );
+  }
+});
+
 test("every internal page link resolves and every local image exists", async () => {
   const worker = await loadWorker();
   const links = new Set();
