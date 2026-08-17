@@ -1,4 +1,9 @@
+import type { Metadata } from "next";
 import { Shell } from "../components";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
+};
 
 export default function Contact() {
   return (
