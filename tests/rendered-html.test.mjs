@@ -188,3 +188,35 @@ test("policy and regulation topic hub links to its related articles", async () =
     /href=["']\/articles\/substation-went-underground["']/i,
   );
 });
+
+test("about page declares one consistent Person identity", async () => {
+  const worker = await loadWorker();
+  const aboutHtml = await (await render(worker, "/about")).text();
+  const canonicalUrl = "https://limhweechim.com/about";
+  const jsonLdScripts = [...aboutHtml.matchAll(
+    /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
+  )].map((match) => JSON.parse(match[1]));
+  const profilePage = jsonLdScripts.find(
+    (item) => item["@type"] === "ProfilePage",
+  );
+
+  assert.ok(
+    aboutHtml.includes(`rel="canonical" href="${canonicalUrl}"`),
+    "About page has no self-referencing canonical URL",
+  );
+  assert.ok(profilePage, "About page has no ProfilePage structured data");
+  assert.equal(profilePage["@id"], canonicalUrl);
+  assert.equal(profilePage.url, canonicalUrl);
+  assert.equal(profilePage.mainEntity["@type"], "Person");
+  assert.equal(
+    profilePage.mainEntity["@id"],
+    "https://limhweechim.com/about#person",
+  );
+  assert.equal(profilePage.mainEntity.name, "Lim Hwee Chim");
+  assert.equal(profilePage.mainEntity.alternateName, "Hwee Chim Lim");
+  assert.deepEqual(profilePage.mainEntity.sameAs, [
+    "https://sg.linkedin.com/in/hweechimlim",
+    "https://medium.com/@hcl.writes",
+  ]);
+  assert.doesNotMatch(aboutHtml, /listed as Hwee Chim Lim/i);
+});
