@@ -7,6 +7,7 @@ const title = "One Camera, Many Agencies, One Project Reality";
 const description =
   "How better upstream information changed the way Grand Dunman prepared for TOP—and why the real innovation was integration, not the camera.";
 const canonical = "/articles/one-camera-many-agencies-one-project-reality";
+const imageBase = "/images/articles/one-camera-many-agencies-one-project-reality";
 
 export const metadata: Metadata = {
   title: `${title} | Skyline by HC`,
@@ -29,10 +30,10 @@ export const metadata: Metadata = {
     authors: ["Lim Hwee Chim"],
     images: [
       {
-        url: "/images/articles/top-90-day-stress-test/towers-nearing-top.webp",
-        width: 1010,
-        height: 747,
-        alt: "Grand Dunman residential towers nearing TOP",
+        url: `${imageBase}/grand-dunman-completed-waterfront.webp`,
+        width: 700,
+        height: 525,
+        alt: "Completed Grand Dunman development viewed across the waterfront",
       },
     ],
   },
@@ -57,8 +58,7 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
       name: "Skyline by HC",
       url: "https://limhweechim.com",
     },
-    image:
-      "https://limhweechim.com/images/articles/top-90-day-stress-test/towers-nearing-top.webp",
+    image: `https://limhweechim.com${imageBase}/grand-dunman-completed-waterfront.webp`,
     keywords: [
       "Whole-of-Government Virtual Inspection",
       "Grand Dunman",
@@ -89,6 +89,21 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
         </header>
 
         <div className="article-body">
+          <figure className="article-image article-image-wide">
+            <Image
+              unoptimized
+              src={`${imageBase}/grand-dunman-completed-waterfront.webp`}
+              alt="Completed Grand Dunman development viewed across the waterfront"
+              width={700}
+              height={525}
+              sizes="(max-width: 800px) 90vw, 900px"
+              priority
+            />
+            <figcaption>
+              Grand Dunman completed—the finished development hides years of coordination, closure and authority interfaces.
+            </figcaption>
+          </figure>
+
           <p className="lead">
             When BCA invited Grand Dunman to join the Whole-of-Government Virtual Inspection pilot, my first reaction was not excitement.
           </p>
@@ -101,15 +116,14 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
           </p>
           <blockquote>Years of decisions. Thousands of interfaces. One fixed date.</blockquote>
 
-          <figure className="article-image article-image-wide">
+          <figure className="article-image article-image-portrait">
             <Image
               unoptimized
-              src="/images/articles/top-90-day-stress-test/towers-nearing-top.webp"
-              alt="Residential towers nearing TOP during the final stage of construction"
-              width={1010}
-              height={747}
-              sizes="(max-width: 800px) 90vw, 900px"
-              priority
+              src={`${imageBase}/grand-dunman-construction-tower-cranes.webp`}
+              alt="Grand Dunman during construction with multiple tower cranes"
+              width={525}
+              height={700}
+              sizes="(max-width: 800px) 82vw, 520px"
             />
             <figcaption>
               Grand Dunman during construction. At this stage, the question was not whether innovation was interesting, but whether it could be introduced without destabilising TOP readiness.
@@ -159,6 +173,20 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
           </p>
           <blockquote>The camera made the project visible. Whole-of-Government made the project integrated.</blockquote>
 
+          <figure className="article-image article-image-wide">
+            <Image
+              unoptimized
+              src={`${imageBase}/virtual-inspection-platform-360-record.webp`}
+              alt="Virtual inspection platform showing a shared 360-degree project record"
+              width={700}
+              height={438}
+              sizes="(max-width: 800px) 90vw, 900px"
+            />
+            <figcaption>
+              A shared digital project record makes the physical condition visible remotely. The deeper value is different parties referring to the same project reality.
+            </figcaption>
+          </figure>
+
           <h2>This Was Not an Isolated Experiment</h2>
           <p>
             The broader rollout of virtual inspection in Singapore suggests the mechanism at Grand Dunman was not a one-off.
@@ -181,6 +209,20 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
           <p>
             The aim isn&apos;t one regulator. It&apos;s one trusted project reality supporting several independent regulatory judgements—considerably harder than organising another coordination meeting.
           </p>
+
+          <figure className="article-image article-image-wide">
+            <Image
+              unoptimized
+              src={`${imageBase}/whole-of-government-site-coordination.webp`}
+              alt="Project and regulatory teams coordinating on site at Grand Dunman"
+              width={700}
+              height={425}
+              sizes="(max-width: 800px) 90vw, 900px"
+            />
+            <figcaption>
+              Different mandates, one physical project: integration depends on bringing separate professional and regulatory perspectives around the same condition on site.
+            </figcaption>
+          </figure>
 
           <h2>Projects Are Rarely Difficult Because Nobody Knows What They&apos;re Doing</h2>
           <p>
@@ -232,14 +274,14 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
           <figure className="article-image article-image-wide">
             <Image
               unoptimized
-              src="/images/articles/top-90-day-stress-test/amenity-deck-final-works.webp"
-              alt="Final works around a residential swimming pool and amenity deck"
-              width={720}
-              height={531}
+              src={`${imageBase}/reality-capture-inspection.webp`}
+              alt="Reality capture inspection being carried out inside a completed Grand Dunman space"
+              width={700}
+              height={333}
               sizes="(max-width: 800px) 90vw, 900px"
             />
             <figcaption>
-              Virtual inspection only helps if areas are genuinely ready for capture, review and closure.
+              Virtual inspection still requires physical readiness, planned capture and disciplined follow-through. Digital evidence does not close a defect by itself.
             </figcaption>
           </figure>
 
@@ -258,17 +300,17 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
             Before the authorities inspected the development, the project team had already inspected itself more critically. This didn&apos;t replace regulatory inspection—independent professional judgement remains essential—but it improved readiness before formal inspection occurred. Visibility changed preparation; earlier preparation changed the outcome.
           </p>
 
-          <figure className="article-image article-image-portrait">
+          <figure className="article-image article-image-wide">
             <Image
               unoptimized
-              src="/images/articles/top-90-day-stress-test/unit-quality-inspection.webp"
-              alt="Detailed quality inspection inside a completed residential bathroom"
-              width={422}
-              height={565}
-              sizes="(max-width: 800px) 82vw, 520px"
+              src={`${imageBase}/pre-inspection-quality-review.webp`}
+              alt="Project team carrying out a pre-inspection quality review at Grand Dunman"
+              width={700}
+              height={310}
+              sizes="(max-width: 800px) 90vw, 900px"
             />
             <figcaption>
-              Preparing for formal inspection can become a quality-assurance mechanism in its own right.
+              Preparing for capture encouraged closer pre-inspection review and earlier rectification—effectively making the project inspect itself before the formal inspection window.
             </figcaption>
           </figure>
 
@@ -284,14 +326,14 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
           <figure className="article-image article-image-wide">
             <Image
               unoptimized
-              src="/images/articles/top-90-day-stress-test/completed-pool-deck.webp"
-              alt="Completed residential towers and landscaped swimming pool"
-              width={640}
-              height={468}
+              src={`${imageBase}/grand-dunman-completed-entrance.webp`}
+              alt="Completed Grand Dunman entrance and clubhouse facade"
+              width={700}
+              height={525}
               sizes="(max-width: 800px) 90vw, 900px"
             />
             <figcaption>
-              The finished development shows the outcome. It does not show the coordination problems that were prevented or closed earlier.
+              The final photograph shows the outcome, not the avoided rework, earlier decisions and coordination that made the outcome possible.
             </figcaption>
           </figure>
 
@@ -348,35 +390,21 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
           <p>
             Upstream information shapes upstream decisions. Upstream decisions shape downstream execution. If we want better productivity, fewer surprises and more confident completion, we have to stop treating every downstream problem as though it began on site. Very often it began earlier—in information that didn&apos;t flow, an interface left unresolved, or a decision that arrived after the economical options had disappeared.
           </p>
-          <blockquote>
+          <p>
             The future of construction is not simply faster work. It is earlier readiness, a shared project reality, better-timed professional judgement—and integration designed before the project is forced to pay for its absence.
-          </blockquote>
+          </p>
 
-          <figure className="article-image article-image-wide article-image-closing">
-            <Image
-              unoptimized
-              src="/images/articles/top-90-day-stress-test/completed-residential-facade.webp"
-              alt="Completed residential tower facade seen from below against a clear blue sky"
-              width={992}
-              height={742}
-              sizes="(max-width: 800px) 90vw, 900px"
-            />
-            <figcaption>
-              The final project records what was delivered, not the upstream information and decisions that made timely delivery possible.
-            </figcaption>
-          </figure>
-
-          <p className="original-note">
-            Source note: Building and Construction Authority (BCA) Singapore, Virtual Inspection (VI) Framework for TOP/CSC Inspections, Industry Transformation Update / CORENET X Regulatory Roadmap (2026).
+          <p className="author-note">
+            Written from inside Singapore&apos;s construction and development industry. Observations drawn from years of working across approvals, coordination, sequencing, and delivery. Positions are the author&apos;s own.
           </p>
           <p className="author-note">
-            Written from inside Singapore&apos;s construction and development industry. Observations are drawn from years of working across approvals, coordination, sequencing and delivery. Positions are the author&apos;s own.
+            Lim Hwee Chim is a Singapore property development leader and the founder of Skyline by HC, where she writes about how upstream developer decisions shape construction outcomes.
           </p>
         </div>
 
-        <footer className="article-footer">
-          <Link href="/articles">← Back to articles</Link>
-        </footer>
+        <p className="article-back">
+          <Link href="/articles">← Back to all articles</Link>
+        </p>
       </article>
     </Shell>
   );
