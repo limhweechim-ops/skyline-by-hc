@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     authors: ["Lim Hwee Chim"],
     images: [
       {
-        url: `${imageBase}/grand-dunman-completed-waterfront.webp`,
+        url: `${imageBase}/01_grand-dunman-completed-waterfront.jpg`,
         width: 700,
         height: 525,
         alt: "Completed Grand Dunman development viewed across the waterfront",
@@ -60,7 +60,7 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
       name: "Skyline by HC",
       url: "https://limhweechim.com",
     },
-    image: `https://limhweechim.com${imageBase}/grand-dunman-completed-waterfront.webp`,
+    image: `https://limhweechim.com${imageBase}/01_grand-dunman-completed-waterfront.jpg`,
     keywords: [
       "Whole-of-Government Virtual Inspection",
       "Grand Dunman",
@@ -94,7 +94,7 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
           <figure className="article-image article-image-wide">
             <Image
               unoptimized
-              src={`${imageBase}/grand-dunman-completed-waterfront.webp`}
+              src={`${imageBase}/01_grand-dunman-completed-waterfront.jpg`}
               alt="Completed Grand Dunman development viewed across the waterfront"
               width={700}
               height={525}
@@ -121,7 +121,7 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
           <figure className="article-image article-image-portrait">
             <Image
               unoptimized
-              src={`${imageBase}/grand-dunman-construction-tower-cranes.webp`}
+              src={`${imageBase}/02_grand-dunman-construction-tower-cranes.jpg`}
               alt="Grand Dunman during construction with multiple tower cranes"
               width={525}
               height={700}
@@ -178,7 +178,7 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
           <figure className="article-image article-image-wide">
             <Image
               unoptimized
-              src={`${imageBase}/virtual-inspection-platform-360-record.webp`}
+              src={`${imageBase}/03_virtual-inspection-platform-360-record.png`}
               alt="Virtual inspection platform showing a shared 360-degree project record"
               width={700}
               height={438}
@@ -215,7 +215,7 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
           <figure className="article-image article-image-wide">
             <Image
               unoptimized
-              src={`${imageBase}/whole-of-government-site-coordination.webp`}
+              src={`${imageBase}/04_whole-of-government-site-coordination.png`}
               alt="Project and regulatory teams coordinating on site at Grand Dunman"
               width={700}
               height={425}
@@ -276,7 +276,7 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
           <figure className="article-image article-image-wide">
             <Image
               unoptimized
-              src={`${imageBase}/reality-capture-inspection.webp`}
+              src={`${imageBase}/05_reality-capture-inspection.png`}
               alt="Reality capture inspection being carried out inside a completed Grand Dunman space"
               width={700}
               height={333}
@@ -305,7 +305,7 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
           <figure className="article-image article-image-wide">
             <Image
               unoptimized
-              src={`${imageBase}/pre-inspection-quality-review.webp`}
+              src={`${imageBase}/06_pre-inspection-quality-review.png`}
               alt="Project team carrying out a pre-inspection quality review at Grand Dunman"
               width={700}
               height={310}
@@ -328,7 +328,7 @@ export default function WholeOfGovernmentVirtualInspectionArticle() {
           <figure className="article-image article-image-wide">
             <Image
               unoptimized
-              src={`${imageBase}/grand-dunman-completed-entrance.webp`}
+              src={`${imageBase}/07_grand-dunman-completed-entrance.jpg`}
               alt="Completed Grand Dunman entrance and clubhouse facade"
               width={700}
               height={525}
