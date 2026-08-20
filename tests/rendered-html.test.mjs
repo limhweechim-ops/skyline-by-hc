@@ -9,6 +9,7 @@ const developmentPreviewMeta =
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const articleSlugs = [
+  "one-camera-many-agencies-one-project-reality",
   "aluminium-finish-survive-twice",
   "bet-is-expiring",
   "top-90-day-stress-test",

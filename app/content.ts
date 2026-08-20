@@ -27,6 +27,17 @@ export const topics = [
 
 export const articles = [
   {
+    slug: "one-camera-many-agencies-one-project-reality",
+    title: "One Camera, Many Agencies, One Project Reality",
+    dek: "How better upstream information changed the way Grand Dunman prepared for TOP—and why the real innovation was integration, not the camera.",
+    date: "20 Aug 2026",
+    topic: "Construction Delivery & TOP",
+    read: "14 min",
+    featured: true,
+    tags: ["Whole-of-Government Virtual Inspection", "Grand Dunman", "TOP", "CORENET X", "information flow", "construction productivity"],
+    originalUrl: "https://medium.com/@hcl.writes/one-camera-many-agencies-one-project-reality-0de26eb68a8d",
+  },
+  {
     slug: "aluminium-finish-survive-twice",
     title: "The Aluminium Finish That Has to Survive Twice",
     dek: "Why powder coating, PVDF and anodised aluminium can look identical on a sample board—and age nothing alike.",
