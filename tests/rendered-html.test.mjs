@@ -32,8 +32,7 @@ const publicRoutes = [
   "/topics/construction-delivery-top",
   "/topics/ppvc-dfma-productivity",
   "/topics/policy-regulation",
-  "/speaking",
-  "/contact",
+  "/connect",
 ];
 
 async function loadWorker() {
