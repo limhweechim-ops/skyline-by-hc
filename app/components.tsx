@@ -11,7 +11,7 @@ export function Footer() {
 export function Shell({children}: {children: React.ReactNode}) { return <><Header/><main>{children}</main><Footer/></>; }
 export function ArticleCard({article, index, showThumbnail = false}: {article: typeof articles[number], index?: number, showThumbnail?: boolean}) {
   return <article className="article-card">
-    {showThumbnail && article.thumbnail ? <Link href={`/articles/${article.slug}`} aria-label={`Read ${article.title}`} style={{display:"block",position:"relative",width:"100%",aspectRatio:"3 / 2",overflow:"hidden",marginBottom:"26px"}}><Image src={article.thumbnail} alt={article.thumbnailAlt} fill sizes="(max-width: 800px) 90vw, 45vw" style={{objectFit:"cover"}} /></Link> : null}
+    {showThumbnail && article.thumbnail ? <Link href={`/articles/${article.slug}`} aria-label={`Read ${article.title}`} style={{display:"block",position:"relative",width:"100%",aspectRatio:"3 / 2",overflow:"hidden",marginBottom:"26px"}}><Image unoptimized src={article.thumbnail} alt={article.thumbnailAlt} fill sizes="(max-width: 800px) 90vw, 45vw" style={{objectFit:"cover"}} /></Link> : null}
     <div className="article-meta"><span>{index ? String(index).padStart(2,"0") : article.topic}</span><span>{article.date}</span></div><h3 style={showThumbnail && article.thumbnail ? {marginTop:"28px"} : undefined}><Link href={`/articles/${article.slug}`}>{article.title}</Link></h3><p>{article.dek}</p><div className="card-end"><span>{article.read} read</span><Link className="arrow" href={`/articles/${article.slug}`} aria-label={`Read ${article.title}`}>↗</Link></div>
   </article>;
 }
