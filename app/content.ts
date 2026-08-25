@@ -121,6 +121,16 @@ export const articles = [
     tags: ["basement substation", "URA", "SPPG", "SCDF", "infrastructure"],
   },
   {
+    slug: "once-you-take-over-the-ship-own-the-storm",
+    title: "Once You Take Over the Ship, You Own the Storm",
+    dek: "Reflections on inheriting construction projects midway—and why ownership begins with understanding the technical, relational, decision and regulatory debt already on board.",
+    date: "10 Mar 2026",
+    topic: "Construction Delivery & TOP",
+    read: "7 min",
+    tags: ["project takeover", "developer leadership", "regulatory approvals", "project delivery", "team trust"],
+    originalUrl: "https://www.linkedin.com/pulse/once-you-take-over-ship-own-storm-hwee-chim-lim-jkjdc/",
+  },
+  {
     slug: "speed-vs-certainty",
     title: "Speed vs. Certainty: Why I’m Not Copying China’s Construction Playbook",
     dek: "What China’s smart construction sites reveal about Singapore’s real productivity challenge: not a technology gap, but information latency across a fragmented ecosystem.",
