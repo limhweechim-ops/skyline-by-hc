@@ -60,7 +60,7 @@ export default function OwnTheStormArticle() {
 
         <div className="article-body">
           <h2>The First Storm I Inherited</h2>
-          <p className="lead">On my first day as an Assistant Project Manager, I reported to a construction site already halfway through delivery. I was young, energised, convinced I could make a positive impact.</p>
+          <p className="lead">On my first day as an Assistant Project Manager, I reported to a construction site already halfway through delivery. I was young, energized, convinced I could make a positive impact.</p>
           <p>Reality corrected me quickly.</p>
           <p>The project was behind programme. Meetings were sharp. Decisions had been made long before I arrived—and not all of them were clean.</p>
           <p>Only near completion did I discover that several team members had placed bets on how long the new APM would last. Many before me had left midway.</p>
@@ -80,7 +80,7 @@ export default function OwnTheStormArticle() {
           <p>That instinct is understandable—especially when projects are visibly failing. But most projects that change hands are not failing. They are half-working.</p>
           <p>And half-working projects are fragile.</p>
           <p>They carry invisible friction: technical compromises made under earlier time or cost pressure; relational fatigue between consultants and contractors; decisions that were reasonable in context, even if uncomfortable in hindsight.</p>
-          <p>The assumption that a new PM must immediately redesign anything imperfect is one of the fastest ways to destabilise what is quietly holding together.</p>
+          <p>The assumption that a new PM must immediately redesign anything imperfect is one of the fastest ways to destabilize what is quietly holding together.</p>
           <p>In construction, momentum is rarely visible until it is lost.</p>
 
           <h2>The Three Debts of Every Ongoing Project</h2>
