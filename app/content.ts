@@ -99,6 +99,18 @@ export const articles = [
     originalUrl: "https://www.linkedin.com/pulse/contract-matters-timing-more-hwee-chim-lim-ii3wc/",
   },
   {
+    slug: "fire-came-before-i-entered-building-industry",
+    title: "Fire came before I entered the building industry",
+    dek: "A childhood shophouse fire, a modern high-rise disaster, and why fire-safety rules are not bureaucratic friction but society’s most basic promise.",
+    date: "3 Jun 2026",
+    topic: "Policy & Regulation",
+    read: "5 min",
+    thumbnail: "/images/articles/fire-came-before-i-entered-building-industry/fire-night-cover.webp",
+    thumbnailAlt: "Wooden shophouses burning at night",
+    tags: ["fire safety", "SCDF", "building regulations", "evacuation", "fire code", "Wang Fuk Court"],
+    originalUrl: "https://www.linkedin.com/pulse/fire-came-before-i-entered-building-industry-hwee-chim-lim-ngnlc/",
+  },
+  {
     slug: "champagne-lasts-ten-minutes",
     title: "The Champagne Lasts Ten Minutes",
     dek: "Winning a Government Land Sale is not the finish line. It begins five years of compressed decisions across design, approvals, procurement, construction and sales.",
