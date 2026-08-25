@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Shell } from "../../components";
 
@@ -17,6 +18,14 @@ export const metadata: Metadata = {
     type: "article",
     publishedTime: "2026-03-10",
     authors: ["Lim Hwee Chim"],
+    images: [
+      {
+        url: "/images/articles/once-you-take-over-the-ship-own-the-storm/once-you-take-over-cover.jpg",
+        width: 495,
+        height: 278,
+        alt: "Project team conducting a construction site walkthrough",
+      },
+    ],
   },
 };
 
@@ -39,6 +48,8 @@ export default function OwnTheStormArticle() {
       name: "Skyline by HC",
       url: "https://limhweechim.com",
     },
+    image:
+      "https://limhweechim.com/images/articles/once-you-take-over-the-ship-own-the-storm/once-you-take-over-cover.jpg",
   };
 
   return (
@@ -59,6 +70,19 @@ export default function OwnTheStormArticle() {
         </header>
 
         <div className="article-body">
+          <figure className="article-image article-image-wide">
+            <Image
+              unoptimized
+              src="/images/articles/once-you-take-over-the-ship-own-the-storm/once-you-take-over-cover.jpg"
+              alt="Project team conducting a construction site walkthrough"
+              width={495}
+              height={278}
+              sizes="(max-width: 800px) 90vw, 900px"
+              priority
+            />
+            <figcaption>Site walkthrough during projects.</figcaption>
+          </figure>
+
           <h2>The First Storm I Inherited</h2>
           <p className="lead">On my first day as an Assistant Project Manager, I reported to a construction site already halfway through delivery. I was young, energized, convinced I could make a positive impact.</p>
           <p>Reality corrected me quickly.</p>
@@ -72,6 +96,19 @@ export default function OwnTheStormArticle() {
 
           <h2>2021: Three Projects, Mid-Pandemic</h2>
           <p>In 2021, when I joined SHG, I stepped into three residential projects already under construction—in the middle of a pandemic. Manpower instability. Supply disruptions. Cashflow stress. And inherited decisions made under pressure long before I arrived.</p>
+
+          <figure className="article-image article-image-wide">
+            <Image
+              unoptimized
+              src="/images/articles/once-you-take-over-the-ship-own-the-storm/site-walkthrough-projects.jpg"
+              alt="Two construction site walkthroughs with project teams reviewing work in progress"
+              width={622}
+              height={200}
+              sizes="(max-width: 800px) 90vw, 900px"
+            />
+            <figcaption>Site walkthrough during projects.</figcaption>
+          </figure>
+
           <p>A senior colleague once told me early in my career: “Once you take over the ship, you own the storm.”</p>
           <p>At the time, I thought he meant authority. It took years to understand he meant composure.</p>
 

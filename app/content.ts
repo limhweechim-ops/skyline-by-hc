@@ -127,6 +127,8 @@ export const articles = [
     date: "10 Mar 2026",
     topic: "Construction Delivery & TOP",
     read: "7 min",
+    thumbnail: "/images/articles/once-you-take-over-the-ship-own-the-storm/once-you-take-over-cover.jpg",
+    thumbnailAlt: "Project team conducting a construction site walkthrough",
     tags: ["project takeover", "developer leadership", "regulatory approvals", "project delivery", "team trust"],
     originalUrl: "https://www.linkedin.com/pulse/once-you-take-over-ship-own-storm-hwee-chim-lim-jkjdc/",
   },
