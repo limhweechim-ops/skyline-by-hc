@@ -60,7 +60,7 @@ export default function SpeedVsCertaintyArticle() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
         />
         <header>
-          <p className="eyebrow">Technology &amp; Productivity</p>
+          <p className="eyebrow">PPVC, DfMA, Technology &amp; Productivity</p>
           <h1>{title}</h1>
           <p className="standfirst">China’s construction speed is impressive. The more useful lesson for Singapore is how coordination can be designed into the system.</p>
           <div className="byline">
