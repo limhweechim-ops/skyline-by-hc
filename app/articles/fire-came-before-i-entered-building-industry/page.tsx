@@ -60,7 +60,7 @@ export default function FireBeforeIndustryArticle() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
         />
         <header>
-          <p className="eyebrow">Policy &amp; Regulation</p>
+          <p className="eyebrow">Policy, Regulation &amp; Sustainability</p>
           <h1>{title}</h1>
           <p className="standfirst">When the night turned orange.</p>
           <div className="byline">
