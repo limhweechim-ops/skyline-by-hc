@@ -25,12 +25,34 @@ export const topics = [
   },
 ];
 
-export const articles = [
+export type ArticleStatus = "draft" | "scheduled" | "published";
+
+export type Article = {
+  slug: string;
+  title: string;
+  dek: string;
+  date: string;
+  publishAt: string;
+  status: ArticleStatus;
+  contentReady: boolean;
+  topic: string;
+  read: string;
+  featured?: boolean;
+  thumbnail?: string;
+  thumbnailAlt?: string;
+  tags: string[];
+  originalUrl?: string;
+};
+
+const articleRegistry: Article[] = [
   {
     slug: "one-camera-many-agencies-one-project-reality",
     title: "One Camera, Many Agencies, One Project Reality",
     dek: "How better upstream information changed the way Grand Dunman prepared for TOP—and why the real innovation was integration, not the camera.",
     date: "20 Aug 2026",
+    publishAt: "2026-08-20",
+    status: "published",
+    contentReady: true,
     topic: "Construction Delivery & TOP",
     read: "14 min",
     featured: true,
@@ -44,6 +66,9 @@ export const articles = [
     title: "The Aluminium Finish That Has to Survive Twice",
     dek: "Why powder coating, PVDF and anodised aluminium can look identical on a sample board—and age nothing alike.",
     date: "12 Aug 2026",
+    publishAt: "2026-08-12",
+    status: "published",
+    contentReady: true,
     topic: "Construction Delivery & TOP",
     read: "8 min",
     featured: true,
@@ -57,6 +82,9 @@ export const articles = [
     title: "BET Is Expiring. The Transformation Should Not.",
     dek: "As Singapore’s BET incentive expires, Lim Hwee Chim examines what should replace it to sustain construction productivity, innovation and industry transformation.",
     date: "4 Aug 2026",
+    publishAt: "2026-08-04",
+    status: "published",
+    contentReady: true,
     topic: "Policy & Regulation",
     read: "10 min",
     thumbnail: "/images/articles/bet-is-expiring/early-site-works-productivity.webp",
@@ -69,6 +97,9 @@ export const articles = [
     title: "TOP: The 90-Day Stress Test",
     dek: "Completion does not reveal a project’s final problems. It reveals the accumulated consequences of its earlier decisions.",
     date: "30 Jul 2026",
+    publishAt: "2026-07-30",
+    status: "published",
+    contentReady: true,
     topic: "Construction Delivery & TOP",
     read: "7 min",
     thumbnail: "/images/articles/top-90-day-stress-test/completed-residential-facade.webp",
@@ -80,6 +111,9 @@ export const articles = [
     title: "The Building Was Built Before It Reached Site",
     dek: "A developer-side account of PPVC as an information and coordination system—from early design decisions and factory production to cross-border logistics and module installation.",
     date: "28 Jun 2026",
+    publishAt: "2026-06-28",
+    status: "published",
+    contentReady: true,
     topic: "PPVC, DfMA & Productivity",
     read: "7 min",
     thumbnail: "/images/articles/building-built-before-reached-site/ppvc-module-on-trailer.webp",
@@ -91,6 +125,9 @@ export const articles = [
     title: "The Contract Matters. The Timing Matters More.",
     dek: "A developer-side view of SIA, REDAS, ECI and NEC4—and why construction outcomes depend on getting the right information into the room before decisions harden.",
     date: "14 Jun 2026",
+    publishAt: "2026-06-14",
+    status: "published",
+    contentReady: true,
     topic: "Development Strategy & Procurement",
     read: "7 min",
     thumbnail: "/images/articles/contract-matters-timing-more/eci-site-workshop.webp",
@@ -103,6 +140,9 @@ export const articles = [
     title: "Fire came before I entered the building industry",
     dek: "A childhood shophouse fire, a modern high-rise disaster, and why fire-safety rules are not bureaucratic friction but society’s most basic promise.",
     date: "3 Jun 2026",
+    publishAt: "2026-06-03",
+    status: "published",
+    contentReady: true,
     topic: "Policy & Regulation",
     read: "5 min",
     thumbnail: "/images/articles/fire-came-before-i-entered-building-industry/fire-night-cover.webp",
@@ -115,6 +155,9 @@ export const articles = [
     title: "The Champagne Lasts Ten Minutes",
     dek: "Winning a Government Land Sale is not the finish line. It begins five years of compressed decisions across design, approvals, procurement, construction and sales.",
     date: "10 May 2026",
+    publishAt: "2026-05-10",
+    status: "published",
+    contentReady: true,
     topic: "Development Strategy & Procurement",
     read: "7 min",
     thumbnail: "/images/articles/champagne-lasts-ten-minutes/bayshore-gls-site-sign.webp",
@@ -126,6 +169,9 @@ export const articles = [
     title: "The Substation Went Underground.",
     dek: "A planning refinement made basement substations more attractive. The technical discussion that followed shows why planning, fire safety and long-term grid operations have to be considered together.",
     date: "25 Jul 2026",
+    publishAt: "2026-07-25",
+    status: "published",
+    contentReady: true,
     topic: "Policy & Regulation",
     read: "9 min",
     thumbnail: "/images/articles/substation-went-underground/underground-substation-equipment-room.webp",
@@ -137,6 +183,9 @@ export const articles = [
     title: "Once You Take Over the Ship, You Own the Storm",
     dek: "Reflections on inheriting construction projects midway—and why ownership begins with understanding the technical, relational, decision and regulatory debt already on board.",
     date: "10 Mar 2026",
+    publishAt: "2026-03-10",
+    status: "published",
+    contentReady: true,
     topic: "Construction Delivery & TOP",
     read: "7 min",
     thumbnail: "/images/articles/once-you-take-over-the-ship-own-the-storm/once-you-take-over-cover.jpg",
@@ -149,6 +198,9 @@ export const articles = [
     title: "Speed vs. Certainty: Why I’m Not Copying China’s Construction Playbook",
     dek: "What China’s smart construction sites reveal about Singapore’s real productivity challenge: not a technology gap, but information latency across a fragmented ecosystem.",
     date: "23 Dec 2025",
+    publishAt: "2025-12-23",
+    status: "published",
+    contentReady: true,
     topic: "PPVC, DfMA & Productivity",
     read: "4 min",
     thumbnail: "/images/articles/speed-vs-certainty/smart-construction-learning-journey.webp",
@@ -156,3 +208,49 @@ export const articles = [
     tags: ["China construction", "CORENET X", "digitalisation", "information latency"],
   },
 ];
+
+const singaporeDate = (date: Date) =>
+  new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Singapore",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(date);
+
+function validateArticleRegistry(now = new Date()) {
+  const slugs = new Set<string>();
+  const today = singaporeDate(now);
+  const isoDate = /^\d{4}-\d{2}-\d{2}$/;
+
+  for (const article of articleRegistry) {
+    if (slugs.has(article.slug)) {
+      throw new Error(`Duplicate article slug: ${article.slug}`);
+    }
+    slugs.add(article.slug);
+
+    if (!article.title.trim() || !article.dek.trim() || !article.topic.trim()) {
+      throw new Error(`Article metadata is incomplete: ${article.slug}`);
+    }
+    if (!isoDate.test(article.publishAt)) {
+      throw new Error(`Article publishAt must use YYYY-MM-DD: ${article.slug}`);
+    }
+    if (article.status === "published" && article.publishAt > today) {
+      throw new Error(`Published article has a future date: ${article.slug}`);
+    }
+    if (article.status !== "draft" && !article.contentReady) {
+      throw new Error(`Article is not ready for publication: ${article.slug}`);
+    }
+  }
+}
+
+export function isArticlePublic(article: Article, now = new Date()) {
+  if (article.status === "draft" || !article.contentReady) return false;
+  return article.publishAt <= singaporeDate(now);
+}
+
+validateArticleRegistry();
+
+export const allArticles = articleRegistry;
+export const articles = articleRegistry.filter((article) =>
+  isArticlePublic(article),
+);
