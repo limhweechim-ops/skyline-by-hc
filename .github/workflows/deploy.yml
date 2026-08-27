@@ -83,5 +83,4 @@ jobs:
             echo "Verified current taxonomy and HTML freshness at ${site_url}."
           }
 
-          verify_taxonomy "https://lim-hwee-chim-skyline.limhweechim.workers.dev/"
           verify_taxonomy "https://limhweechim.com/"
