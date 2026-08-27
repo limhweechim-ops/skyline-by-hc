@@ -15,12 +15,11 @@ const articleSlugs = [
   "top-90-day-stress-test",
   "building-built-before-reached-site",
   "contract-matters-timing-more",
+  "fire-came-before-i-entered-building-industry",
   "champagne-lasts-ten-minutes",
   "substation-went-underground",
+  "once-you-take-over-the-ship-own-the-storm",
   "speed-vs-certainty",
-  "household-shelter-on-the-road",
-  "robotic-dog",
-  "whole-of-government-top",
 ];
 const publicRoutes = [
   "/",
@@ -137,6 +136,20 @@ test("unknown article routes return not found", async () => {
   const worker = await loadWorker();
   const response = await render(worker, "/articles/not-a-real-article");
   assert.equal(response.status, 404);
+});
+
+test("unpublished placeholder article routes return not found", async () => {
+  const worker = await loadWorker();
+  const unpublishedSlugs = [
+    "household-shelter-on-the-road",
+    "robotic-dog",
+    "whole-of-government-top",
+  ];
+
+  for (const slug of unpublishedSlugs) {
+    const response = await render(worker, `/articles/${slug}`);
+    assert.equal(response.status, 404, `${slug} returned ${response.status}`);
+  }
 });
 
 test("development strategy topic hub links to its related articles", async () => {
