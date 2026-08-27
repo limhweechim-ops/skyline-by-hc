@@ -3,27 +3,46 @@ export const topics = [
     slug: "development-strategy-procurement",
     title: "Development Strategy & Procurement",
     description:
-      "How early developer decisions, procurement strategy, contracts and risk allocation shape project outcomes.",
+      "Early developer decisions, feasibility, procurement strategy, contracts and risk allocation.",
+    question:
+      "What must the developer decide before design and procurement commitments harden?",
+  },
+  {
+    slug: "developer-leadership",
+    title: "Developer Leadership",
+    description:
+      "Ownership, governance, escalation and the conditions developers create for project teams.",
+    question:
+      "How should ownership and escalation be designed so problems surface while there is still time to act?",
   },
   {
     slug: "construction-delivery-top",
     title: "Construction Delivery & TOP",
     description:
-      "Practical lessons on construction coordination, authority clearances, commissioning, quality and project completion.",
+      "Interfaces, quality, commissioning, authority clearances, maintainability and completion readiness.",
+    question:
+      "What information, interfaces and quality gates must be resolved before completion pressure turns them into rework?",
   },
   {
     slug: "ppvc-dfma-productivity",
-    title: "PPVC, DfMA & Productivity",
+    title: "PPVC, DfMA, Technology & Productivity",
     description:
-      "Why construction productivity depends on design coordination, information continuity, manufacturing and logistics—not technology alone.",
+      "Industrialised construction and digital tools, judged by how well they integrate into real delivery.",
+    question:
+      "What must be integrated across design, manufacturing, logistics and digital delivery for technology to produce reliable productivity?",
   },
   {
     slug: "policy-regulation",
-    title: "Policy & Regulation",
+    title: "Policy, Regulation & Sustainability",
     description:
-      "A developer-side view of Singapore’s planning rules, incentives, authority requirements and built-environment transformation.",
+      "How planning rules, authority requirements, incentives and long-term outcomes meet project realities.",
+    question:
+      "How can regulatory intent, commercial feasibility, sustainability and project delivery be reconciled in practice?",
   },
-];
+] as const;
+
+export type TopicSlug = (typeof topics)[number]["slug"];
+export type TopicTitle = (typeof topics)[number]["title"];
 
 export type ArticleStatus = "draft" | "scheduled" | "published";
 
@@ -35,7 +54,7 @@ export type Article = {
   publishAt: string;
   status: ArticleStatus;
   contentReady: boolean;
-  topic: string;
+  topic: TopicTitle;
   read: string;
   featured?: boolean;
   thumbnail?: string;
@@ -85,7 +104,7 @@ const articleRegistry: Article[] = [
     publishAt: "2026-08-04",
     status: "published",
     contentReady: true,
-    topic: "Policy & Regulation",
+    topic: "Policy, Regulation & Sustainability",
     read: "10 min",
     thumbnail: "/images/articles/bet-is-expiring/early-site-works-productivity.webp",
     thumbnailAlt: "Early site works illustrating construction productivity and transformation",
@@ -114,7 +133,7 @@ const articleRegistry: Article[] = [
     publishAt: "2026-06-28",
     status: "published",
     contentReady: true,
-    topic: "PPVC, DfMA & Productivity",
+    topic: "PPVC, DfMA, Technology & Productivity",
     read: "7 min",
     thumbnail: "/images/articles/building-built-before-reached-site/ppvc-module-on-trailer.webp",
     thumbnailAlt: "PPVC module transported on a trailer before reaching site",
@@ -143,7 +162,7 @@ const articleRegistry: Article[] = [
     publishAt: "2026-06-03",
     status: "published",
     contentReady: true,
-    topic: "Policy & Regulation",
+    topic: "Policy, Regulation & Sustainability",
     read: "5 min",
     thumbnail: "/images/articles/fire-came-before-i-entered-building-industry/fire-night-cover.webp",
     thumbnailAlt: "Wooden shophouses burning at night",
@@ -172,7 +191,7 @@ const articleRegistry: Article[] = [
     publishAt: "2026-07-25",
     status: "published",
     contentReady: true,
-    topic: "Policy & Regulation",
+    topic: "Policy, Regulation & Sustainability",
     read: "9 min",
     thumbnail: "/images/articles/substation-went-underground/underground-substation-equipment-room.webp",
     thumbnailAlt: "Electrical equipment room within an underground substation",
@@ -186,7 +205,7 @@ const articleRegistry: Article[] = [
     publishAt: "2026-03-10",
     status: "published",
     contentReady: true,
-    topic: "Construction Delivery & TOP",
+    topic: "Developer Leadership",
     read: "7 min",
     thumbnail: "/images/articles/once-you-take-over-the-ship-own-the-storm/once-you-take-over-cover.jpg",
     thumbnailAlt: "Project team conducting a construction site walkthrough",
@@ -201,7 +220,7 @@ const articleRegistry: Article[] = [
     publishAt: "2025-12-23",
     status: "published",
     contentReady: true,
-    topic: "PPVC, DfMA & Productivity",
+    topic: "PPVC, DfMA, Technology & Productivity",
     read: "4 min",
     thumbnail: "/images/articles/speed-vs-certainty/smart-construction-learning-journey.webp",
     thumbnailAlt: "Smart construction learning journey in China",

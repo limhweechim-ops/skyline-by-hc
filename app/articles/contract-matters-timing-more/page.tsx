@@ -60,7 +60,7 @@ export default function ContractTimingArticle() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
         />
         <header>
-          <p className="eyebrow">Developer Leadership</p>
+          <p className="eyebrow">Development Strategy &amp; Procurement</p>
           <h1>{title}</h1>
           <p className="standfirst">On SIA, REDAS, ECI, NEC4, and the question nobody frames this way.</p>
           <div className="byline">

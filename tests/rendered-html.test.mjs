@@ -28,6 +28,7 @@ const publicRoutes = [
   ...articleSlugs.map((slug) => `/articles/${slug}`),
   "/topics",
   "/topics/development-strategy-procurement",
+  "/topics/developer-leadership",
   "/topics/construction-delivery-top",
   "/topics/ppvc-dfma-productivity",
   "/topics/policy-regulation",
@@ -200,6 +201,60 @@ test("policy and regulation topic hub links to its related articles", async () =
     hubHtml,
     /href=["']\/articles\/substation-went-underground["']/i,
   );
+});
+
+test("homepage and Topics page link directly to all five canonical hubs", async () => {
+  const worker = await loadWorker();
+  const homepageHtml = await (await render(worker, "/")).text();
+  const topicsHtml = await (await render(worker, "/topics")).text();
+  const topicPaths = [
+    "/topics/development-strategy-procurement",
+    "/topics/developer-leadership",
+    "/topics/construction-delivery-top",
+    "/topics/ppvc-dfma-productivity",
+    "/topics/policy-regulation",
+  ];
+
+  assert.match(homepageHtml, /Five lenses\./i);
+  assert.doesNotMatch(homepageHtml, /href=["']\/topics#/i);
+
+  for (const pathname of topicPaths) {
+    const pattern = new RegExp(`href=["']${pathname}["']`, "i");
+    assert.match(homepageHtml, pattern, `Homepage does not link to ${pathname}`);
+    assert.match(topicsHtml, pattern, `Topics page does not link to ${pathname}`);
+  }
+});
+
+test("Developer Leadership has one primary home and cross-topic related reading", async () => {
+  const worker = await loadWorker();
+  const hubHtml = await (await render(worker, "/topics/developer-leadership")).text();
+
+  assert.match(
+    hubHtml,
+    /href=["']\/articles\/once-you-take-over-the-ship-own-the-storm["']/i,
+  );
+  assert.match(hubHtml, /Across the interfaces/i);
+  assert.match(
+    hubHtml,
+    /href=["']\/articles\/champagne-lasts-ten-minutes["']/i,
+  );
+});
+
+test("legacy topic URLs redirect to canonical hubs", async () => {
+  const worker = await loadWorker();
+  const redirects = new Map([
+    ["/topics/technology-productivity", "/topics/ppvc-dfma-productivity"],
+    ["/topics/sustainability-built-environment", "/topics/policy-regulation"],
+    ["/topics/policy-regulation-sustainability", "/topics/policy-regulation"],
+    ["/topics/ppvc-dfma-technology-productivity", "/topics/ppvc-dfma-productivity"],
+    ["/topics/construction-delivery", "/topics/construction-delivery-top"],
+  ]);
+
+  for (const [source, target] of redirects) {
+    const response = await render(worker, source);
+    assert.ok([307, 308].includes(response.status), `${source} returned ${response.status}`);
+    assert.equal(new URL(response.headers.get("location"), "http://localhost").pathname, target);
+  }
 });
 
 test("about page declares one consistent Person identity", async () => {
