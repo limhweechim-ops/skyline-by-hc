@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { ArticleCard, Shell } from "../../components";
 import { articles } from "../../content";
 
-const title = "Policy & Regulation";
+const title = "Policy, Regulation & Sustainability";
 const description =
-  "A developer-side view of Singapore’s planning rules, incentives, authority requirements and built-environment transformation.";
+  "A developer-side view of Singapore’s planning rules, authority requirements, transformation incentives, sustainability and long-term built-environment outcomes.";
+const primaryTopic = "Policy, Regulation & Sustainability";
+const relatedSlugs = ["champagne-lasts-ten-minutes","aluminium-finish-survive-twice","speed-vs-certainty"];
 
 export const metadata: Metadata = {
   title,
@@ -19,9 +21,13 @@ export const metadata: Metadata = {
 };
 
 export default function PolicyRegulationTopic() {
-  const relatedArticles = articles.filter(
-    (article) => article.topic === "Policy & Regulation",
+  const primaryArticles = articles.filter(
+    (article) => article.topic === primaryTopic,
   );
+  const relatedArticles = relatedSlugs
+    .map((slug) => articles.find((article) => article.slug === slug))
+    .filter((article): article is (typeof articles)[number] => Boolean(article));
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -33,7 +39,7 @@ export default function PolicyRegulationTopic() {
       name: "Lim Hwee Chim",
       url: "https://limhweechim.com/about",
     },
-    hasPart: relatedArticles.map((article) => ({
+    hasPart: primaryArticles.map((article) => ({
       "@type": "Article",
       headline: article.title,
       url: `https://limhweechim.com/articles/${article.slug}`,
@@ -47,19 +53,29 @@ export default function PolicyRegulationTopic() {
           <p className="eyebrow">Topic hub</p>
           <h1>{title}</h1>
         </div>
-        <p>
-          Policy and regulation do more than define what a project may build.
-          They shape the incentives, approval pathways and coordination
-          conditions within which the industry works. These articles examine
-          Singapore’s planning rules, authority requirements and transformation
-          policies from the developer side—where regulatory intent must
-          ultimately become practical delivery.
-        </p>
+        <div>
+          <p>Policy and regulation do more than define what a project may build. They shape incentives, approval pathways, sustainability expectations and the coordination conditions within which the industry works.</p>
+          <p><strong>Developer-side question:</strong> How can regulatory intent, commercial feasibility, sustainability and project delivery be reconciled in practice?</p>
+        </div>
       </section>
-      <section className="archive" aria-label="Policy and regulation articles">
-        {relatedArticles.map((article, index) => (
+      <section className="archive" aria-label="Policy, regulation and sustainability articles">
+        {primaryArticles.map((article, index) => (
           <ArticleCard key={article.slug} article={article} index={index + 1} />
         ))}
+      </section>
+      <section className="latest section-pad" aria-labelledby="policy-regulation-related">
+        <div className="section-head">
+          <div>
+            <p className="eyebrow">Across the interfaces</p>
+            <h2 id="policy-regulation-related">Related articles</h2>
+            <p className="section-intro">Policy intent is tested through feasibility, long-term maintainability and the delivery systems available to real projects.</p>
+          </div>
+        </div>
+        <div className="article-grid">
+          {relatedArticles.map((article, index) => (
+            <ArticleCard key={article.slug} article={article} index={index + 1} />
+          ))}
+        </div>
       </section>
       <script
         type="application/ld+json"
