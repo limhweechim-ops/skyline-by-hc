@@ -60,7 +60,7 @@ export default function BuildingBuiltBeforeSiteArticle() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
         />
         <header>
-          <p className="eyebrow">Technology &amp; Productivity</p>
+          <p className="eyebrow">PPVC, DfMA, Technology &amp; Productivity</p>
           <h1>{title}</h1>
           <p className="standfirst">PPVC is not simply a construction technology. It is a coordination discipline that manufactures certainty before the building reaches site.</p>
           <div className="byline">
