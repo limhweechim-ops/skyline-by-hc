@@ -60,7 +60,7 @@ export default function ChampagneArticle() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
         />
         <header>
-          <p className="eyebrow">Developer Leadership</p>
+          <p className="eyebrow">Development Strategy &amp; Procurement</p>
           <h1>{title}</h1>
           <p className="standfirst">What really starts the day you win a Government Land Sale.</p>
           <div className="byline">
