@@ -60,7 +60,7 @@ export default function SubstationWentUndergroundArticle() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
         />
         <header>
-          <p className="eyebrow">Policy &amp; Regulation</p>
+          <p className="eyebrow">Policy, Regulation &amp; Sustainability</p>
           <h1>{title}</h1>
           <p className="standfirst">{description}</p>
           <div className="byline">
