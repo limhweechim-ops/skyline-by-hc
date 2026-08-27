@@ -49,3 +49,29 @@ jobs:
 
       - name: Deploy to Cloudflare
         run: npx wrangler deploy --config wrangler.deploy.jsonc
+
+      - name: Verify live five-lens taxonomy
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          verify_taxonomy() {
+            local site_url="$1"
+            local response_body
+            local response_headers
+            response_body="$(mktemp)"
+            response_headers="$(mktemp)"
+
+            curl --fail --silent --show-error --location \
+              --retry 5 --retry-all-errors --connect-timeout 10 --max-time 30 \
+              --user-agent "Mozilla/5.0 Skyline-Deployment-Check/${GITHUB_SHA}" \
+              --dump-header "${response_headers}" \
+              --output "${response_body}" \
+              "${site_url}?release=${GITHUB_SHA}"
+
+            grep --quiet "Developer Leadership" "${response_body}"
+            grep --ignore-case --quiet '^cache-control:.*no-store' "${response_headers}"
+          }
+
+          verify_taxonomy "https://lim-hwee-chim-skyline.limhweechim.workers.dev/"
+          verify_taxonomy "https://limhweechim.com/"
