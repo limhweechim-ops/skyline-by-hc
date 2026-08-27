@@ -25,6 +25,21 @@ interface ExecutionContext {
 // dangerouslyAllowSVG: true in next.config.js and uncomment below:
 // const imageConfig: ImageConfig = { dangerouslyAllowSVG: true };
 
+function preventStaleHtml(request: Request, response: Response) {
+  const contentType = response.headers.get("content-type") ?? "";
+  const isDocumentRequest = request.method === "GET" || request.method === "HEAD";
+
+  if (!isDocumentRequest || !contentType.includes("text/html")) {
+    return response;
+  }
+
+  // The article and topic register changes with each publication. Do not let
+  // browsers or intermediaries retain an older page after a Worker deployment.
+  const freshResponse = new Response(response.body, response);
+  freshResponse.headers.set("Cache-Control", "no-store");
+  return freshResponse;
+}
+
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
@@ -40,7 +55,8 @@ const worker = {
       }, allowedWidths);
     }
 
-    return handler.fetch(request, env, ctx);
+    const response = await handler.fetch(request, env, ctx);
+    return preventStaleHtml(request, response);
   },
 };
 
