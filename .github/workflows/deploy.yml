@@ -69,8 +69,18 @@ jobs:
               --output "${response_body}" \
               "${site_url}?release=${GITHUB_SHA}"
 
-            grep --quiet "Developer Leadership" "${response_body}"
-            grep --ignore-case --quiet '^cache-control:.*no-store' "${response_headers}"
+            if ! grep --fixed-strings --quiet "Developer Leadership" "${response_body}"; then
+              echo "Developer Leadership is missing from ${site_url}." >&2
+              exit 1
+            fi
+
+            if ! grep --ignore-case --quiet '^cache-control:.*no-store' "${response_headers}"; then
+              echo "The no-store HTML policy is missing from ${site_url}." >&2
+              sed -n '1,40p' "${response_headers}" >&2
+              exit 1
+            fi
+
+            echo "Verified current taxonomy and HTML freshness at ${site_url}."
           }
 
           verify_taxonomy "https://lim-hwee-chim-skyline.limhweechim.workers.dev/"
