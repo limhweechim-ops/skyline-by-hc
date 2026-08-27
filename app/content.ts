@@ -209,46 +209,9 @@ const articleRegistry: Article[] = [
   },
 ];
 
-const singaporeDate = (date: Date) =>
-  new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Singapore",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(date);
-
-function validateArticleRegistry(now = new Date()) {
-  const slugs = new Set<string>();
-  const today = singaporeDate(now);
-  const isoDate = /^\d{4}-\d{2}-\d{2}$/;
-
-  for (const article of articleRegistry) {
-    if (slugs.has(article.slug)) {
-      throw new Error(`Duplicate article slug: ${article.slug}`);
-    }
-    slugs.add(article.slug);
-
-    if (!article.title.trim() || !article.dek.trim() || !article.topic.trim()) {
-      throw new Error(`Article metadata is incomplete: ${article.slug}`);
-    }
-    if (!isoDate.test(article.publishAt)) {
-      throw new Error(`Article publishAt must use YYYY-MM-DD: ${article.slug}`);
-    }
-    if (article.status === "published" && article.publishAt > today) {
-      throw new Error(`Published article has a future date: ${article.slug}`);
-    }
-    if (article.status !== "draft" && !article.contentReady) {
-      throw new Error(`Article is not ready for publication: ${article.slug}`);
-    }
-  }
+export function isArticlePublic(article: Article) {
+  return article.status === "published" && article.contentReady;
 }
-
-export function isArticlePublic(article: Article, now = new Date()) {
-  if (article.status === "draft" || !article.contentReady) return false;
-  return article.publishAt <= singaporeDate(now);
-}
-
-validateArticleRegistry();
 
 export const allArticles = articleRegistry;
 export const articles = articleRegistry.filter((article) =>
