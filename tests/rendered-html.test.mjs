@@ -356,3 +356,35 @@ test("Connect is the sole permanent enquiry route", async () => {
   assert.match(redirects, /^\/contact \/connect 308$/m);
   assert.match(redirects, /^\/speaking \/connect 308$/m);
 });
+
+
+test("homepage routes first-time visitors before the five topic lenses", async () => {
+  const worker = await loadWorker();
+  const homepageHtml = await (await render(worker, "/")).text();
+
+  const routingIndex = homepageHtml.indexOf("What brings you here?");
+  const lensesIndex = homepageHtml.indexOf("Five lenses.");
+
+  assert.ok(routingIndex > -1, "Homepage routing heading is missing");
+  assert.ok(lensesIndex > routingIndex, "Homepage routing must appear before Five lenses");
+  assert.match(homepageHtml, /href=["']\/topics["'][^>]*>Explore the topics/i);
+  assert.match(homepageHtml, /href=["']\/connect["'][^>]*>Send HC a note/i);
+  assert.match(
+    homepageHtml,
+    /href=["']\/connect\?type=speaking(?:&amp;)?["'][^>]*>Start a conversation/i,
+  );
+  assert.match(homepageHtml, /Explore developer-side lessons/i);
+  assert.match(homepageHtml, /Compare notes on a project problem/i);
+  assert.match(homepageHtml, /Speaking or media enquiry/i);
+});
+
+test("speaking homepage route is supported by Connect form preselection", async () => {
+  const formSource = await readFile(
+    path.join(rootDir, "app", "connect", "ContactForm.tsx"),
+    "utf8",
+  );
+
+  assert.match(formSource, /requestedType === "speaking"/);
+  assert.match(formSource, /setEnquiryType\("Speaking or media invitation"\)/);
+  assert.match(formSource, /value=\{enquiryType\}/);
+});
