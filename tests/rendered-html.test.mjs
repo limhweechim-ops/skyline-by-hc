@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { access } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
@@ -287,4 +287,72 @@ test("about page declares one consistent Person identity", async () => {
     "https://medium.com/@hcl.writes",
   ]);
   assert.doesNotMatch(aboutHtml, /listed as Hwee Chim Lim/i);
+});
+
+
+test("Connect is the sole permanent enquiry route", async () => {
+  const worker = await loadWorker();
+  const connectHtml = await (await render(worker, "/connect")).text();
+  const homepageHtml = await (await render(worker, "/")).text();
+  const articleHtml = await (
+    await render(worker, "/articles/one-camera-many-agencies-one-project-reality")
+  ).text();
+
+  assert.match(
+    connectHtml,
+    /<title>Connect with Lim Hwee Chim \| Skyline by HC<\/title>/i,
+  );
+  assert.match(
+    connectHtml,
+    /<meta(?=[^>]*name=["']description["'])(?=[^>]*content=["']Share a construction problem, project experiment, speaking invitation or industry question with Lim Hwee Chim, founder of Skyline by HC\.["'])[^>]*>/i,
+  );
+  assert.ok(
+    connectHtml.includes(
+      'rel="canonical" href="https://limhweechim.com/connect"',
+    ),
+  );
+  assert.match(
+    connectHtml,
+    /Got an interesting project problem\? Let’s compare notes\./i,
+  );
+
+  const enquiryOptions = [
+    "Project problem or lesson",
+    "PPVC, precast or DfMA",
+    "Experiment or research idea",
+    "Speaking or media invitation",
+    "Other industry conversation",
+  ];
+  for (const option of enquiryOptions) {
+    assert.ok(connectHtml.includes(option), `Missing enquiry option: ${option}`);
+  }
+
+  assert.match(homepageHtml, /href=["']\/connect["'][^>]*>Connect\s*</i);
+  assert.match(articleHtml, /href=["']\/connect["'][^>]*>Connect\s*</i);
+
+  for (const route of publicRoutes) {
+    const html = await (await render(worker, route)).text();
+    assert.doesNotMatch(
+      html,
+      /The form will be connected before the public launch\./i,
+      `Legacy form placeholder found on ${route}`,
+    );
+    assert.doesNotMatch(html, /href=["']\/(?:contact|speaking)["']/i);
+  }
+
+  for (const source of ["/contact", "/speaking"]) {
+    const response = await render(worker, source);
+    assert.ok([301, 308].includes(response.status), `${source} returned ${response.status}`);
+    assert.equal(
+      new URL(response.headers.get("location"), "http://localhost").pathname,
+      "/connect",
+    );
+  }
+
+  const redirects = await readFile(
+    path.join(rootDir, "public", "_redirects"),
+    "utf8",
+  );
+  assert.match(redirects, /^\/contact \/connect 308$/m);
+  assert.match(redirects, /^\/speaking \/connect 308$/m);
 });
