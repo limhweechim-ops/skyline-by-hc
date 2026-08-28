@@ -387,3 +387,35 @@ test("speaking homepage route preselects the speaking enquiry option", async () 
     /<option value="Speaking or media invitation" selected="">Speaking or media invitation<\/option>/i,
   );
 });
+
+
+test("About presents restrained, linked evidence before Why Skyline exists", async () => {
+  const worker = await loadWorker();
+  const aboutHtml = await (await render(worker, "/about")).text();
+
+  const experienceIndex = aboutHtml.indexOf("Selected experience and contributions");
+  const whyIndex = aboutHtml.indexOf("Why Skyline exists");
+
+  assert.ok(experienceIndex > -1, "Selected experience section is missing");
+  assert.ok(whyIndex > experienceIndex, "Selected experience must precede Why Skyline exists");
+
+  const evidenceHeadings = [
+    "Large-scale residential delivery",
+    "PPVC and integrated construction",
+    "Industry contribution",
+  ];
+  for (const heading of evidenceHeadings) {
+    assert.ok(aboutHtml.includes(heading), `Missing evidence entry: ${heading}`);
+  }
+
+  assert.match(
+    aboutHtml,
+    /href=["']\/articles\/one-camera-many-agencies-one-project-reality["']/i,
+  );
+  assert.match(
+    aboutHtml,
+    /href=["']\/articles\/building-built-before-reached-site["']/i,
+  );
+  assert.match(aboutHtml, /href=["']\/articles\/bet-is-expiring["']/i);
+  assert.doesNotMatch(aboutHtml, /tender amount|confidential|General Manager/i);
+});
