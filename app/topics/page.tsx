@@ -6,7 +6,7 @@ import { topics } from "../content";
 export const metadata: Metadata = {
   title: "Topics",
   description:
-    "Five connected lenses for exploring Lim Hwee Chim’s developer-side writing on strategy, leadership, construction delivery, technology, productivity, policy and sustainability.",
+    "Six connected hubs for exploring Lim Hwee Chim’s developer-side writing on strategy, leadership, construction delivery, PPVC and DfMA, technology and AI, policy, regulation and sustainability.",
   alternates: { canonical: "/topics" },
 };
 
@@ -15,10 +15,11 @@ export default function Topics() {
     <Shell>
       <section className="page-hero">
         <p className="eyebrow">Topics</p>
-        <h1>Five lenses. One connected system.</h1>
+        <h1>Six hubs. One connected system.</h1>
         <p>
-          Each article has one primary home, while related reading follows the
-          interfaces between strategy, leadership, delivery, technology and policy.
+          Each article has one primary home, while tags and related reading follow
+          the interfaces between strategy, leadership, delivery, industrialised
+          construction, digital delivery and policy.
         </p>
       </section>
       <section className="topic-index">
