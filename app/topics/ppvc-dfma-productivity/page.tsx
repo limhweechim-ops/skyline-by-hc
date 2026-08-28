@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { ArticleCard, Shell } from "../../components";
 import { articles } from "../../content";
 
-const title = "PPVC, DfMA, Technology & Productivity";
+const title = "PPVC, DfMA & Productivity";
 const description =
-  "Developer-side articles on PPVC, DfMA, technology, design coordination, manufacturing, logistics, digital delivery and construction productivity in Singapore.";
-const primaryTopic = "PPVC, DfMA, Technology & Productivity";
-const relatedSlugs = ["contract-matters-timing-more","one-camera-many-agencies-one-project-reality","bet-is-expiring"];
+  "Developer-side articles on PPVC, DfMA, off-site manufacturing, design coordination, logistics and construction productivity in Singapore.";
+const primaryTopic = "PPVC, DfMA & Productivity";
+const relatedSlugs = ["contract-matters-timing-more","speed-vs-certainty","bet-is-expiring"];
 
 export const metadata: Metadata = {
   title,
@@ -54,11 +54,11 @@ export default function PpvcTopic() {
           <h1>{title}</h1>
         </div>
         <div>
-          <p>PPVC and digital tools are often presented as technical solutions. In practice, they work only when design, procurement, manufacturing, logistics, information and site operations are integrated early enough.</p>
-          <p><strong>Developer-side question:</strong> What must be integrated across design, manufacturing, logistics and digital delivery for technology to produce reliable productivity?</p>
+          <p>PPVC and DfMA are often presented as manufacturing methods. In practice, they are coordination disciplines that depend on early design decisions, interface control, production readiness, logistics and site integration.</p>
+          <p><strong>Developer-side question:</strong> What must be integrated across design, manufacturing, logistics and site operations for industrialised construction to deliver reliable productivity?</p>
         </div>
       </section>
-      <section className="archive" aria-label="PPVC, DfMA, technology and productivity articles">
+      <section className="archive" aria-label="PPVC, DfMA and productivity articles">
         {primaryArticles.map((article, index) => (
           <ArticleCard key={article.slug} article={article} index={index + 1} />
         ))}
@@ -68,7 +68,7 @@ export default function PpvcTopic() {
           <div>
             <p className="eyebrow">Across the interfaces</p>
             <h2 id="ppvc-dfma-productivity-related">Related articles</h2>
-            <p className="section-intro">Technology depends on procurement timing, delivery behaviour and regulatory incentives—not the tool alone.</p>
+            <p className="section-intro">Industrialised construction is shaped by procurement timing, digital coordination, regulation and the readiness of the wider delivery system.</p>
           </div>
         </div>
         <div className="article-grid">
