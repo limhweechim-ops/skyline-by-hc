@@ -1,11 +1,19 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 type SubmissionState = "idle" | "submitting" | "success" | "error";
 
 export function ContactForm() {
   const [submissionState, setSubmissionState] = useState<SubmissionState>("idle");
+  const [enquiryType, setEnquiryType] = useState("Project problem or lesson");
+
+  useEffect(() => {
+    const requestedType = new URLSearchParams(window.location.search).get("type");
+    if (requestedType === "speaking") {
+      setEnquiryType("Speaking or media invitation");
+    }
+  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -65,7 +73,11 @@ export function ContactForm() {
 
       <label>
         What would you like to compare notes on?
-        <select name="enquiry_type" defaultValue="Project problem or lesson">
+        <select
+          name="enquiry_type"
+          value={enquiryType}
+          onChange={(event) => setEnquiryType(event.target.value)}
+        >
           <option value="Project problem or lesson">Project problem or lesson</option>
           <option value="PPVC, precast or DfMA">PPVC, precast or DfMA</option>
           <option value="Experiment or research idea">Experiment or research idea</option>
