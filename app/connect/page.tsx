@@ -9,7 +9,16 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://limhweechim.com/connect" },
 };
 
-export default function Connect(){
+type ConnectProps = {
+  searchParams: Promise<{ type?: string }>;
+};
+
+export default async function Connect({ searchParams }: ConnectProps){
+  const { type } = await searchParams;
+  const initialEnquiryType = type === "speaking"
+    ? "Speaking or media invitation"
+    : "Project problem or lesson";
+
   return <Shell>
     <section className="page-hero split">
       <div>
@@ -43,7 +52,7 @@ export default function Connect(){
         <p>Send HC a note.</p>
         <p className="small">A short note about the issue, idea or experiment is enough to begin.</p>
       </div>
-      <ContactForm />
+      <ContactForm initialEnquiryType={initialEnquiryType} />
     </section>
 
     <section className="media-note">

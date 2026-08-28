@@ -356,3 +356,34 @@ test("Connect is the sole permanent enquiry route", async () => {
   assert.match(redirects, /^\/contact \/connect 308$/m);
   assert.match(redirects, /^\/speaking \/connect 308$/m);
 });
+
+
+test("homepage routes first-time visitors before the five topic lenses", async () => {
+  const worker = await loadWorker();
+  const homepageHtml = await (await render(worker, "/")).text();
+
+  const routingIndex = homepageHtml.indexOf("What brings you here?");
+  const lensesIndex = homepageHtml.indexOf("Five lenses.");
+
+  assert.ok(routingIndex > -1, "Homepage routing heading is missing");
+  assert.ok(lensesIndex > routingIndex, "Homepage routing must appear before Five lenses");
+  assert.match(homepageHtml, /href=["']\/topics["'][^>]*>Explore the topics/i);
+  assert.match(homepageHtml, /href=["']\/connect["'][^>]*>Send HC a note/i);
+  assert.match(
+    homepageHtml,
+    /href=["']\/connect\?type=speaking(?:&amp;)?["'][^>]*>Start a conversation/i,
+  );
+  assert.match(homepageHtml, /Explore developer-side lessons/i);
+  assert.match(homepageHtml, /Compare notes on a project problem/i);
+  assert.match(homepageHtml, /Speaking or media enquiry/i);
+});
+
+test("speaking homepage route preselects the speaking enquiry option", async () => {
+  const worker = await loadWorker();
+  const connectHtml = await (await render(worker, "/connect?type=speaking")).text();
+
+  assert.match(
+    connectHtml,
+    /<option value="Speaking or media invitation" selected="">Speaking or media invitation<\/option>/i,
+  );
+});
