@@ -25,17 +25,25 @@ export const topics = [
   },
   {
     slug: "ppvc-dfma-productivity",
-    title: "PPVC, DfMA, Technology & Productivity",
+    title: "PPVC, DfMA & Productivity",
     description:
-      "Industrialised construction and digital tools, judged by how well they integrate into real delivery.",
+      "Industrialised construction, off-site manufacturing and the coordination discipline needed to make DfMA work in real delivery.",
     question:
-      "What must be integrated across design, manufacturing, logistics and digital delivery for technology to produce reliable productivity?",
+      "What must be integrated across design, manufacturing, logistics and site operations for industrialised construction to deliver reliable productivity?",
   },
   {
-    slug: "policy-regulation",
+    slug: "technology-ai-digital-delivery",
+    title: "Technology, AI & Digital Delivery",
+    description:
+      "Digital delivery, AI, reality capture and construction technology, judged by whether they improve information flow and project decisions.",
+    question:
+      "Where can technology reduce information latency, strengthen coordination and improve decisions without adding another disconnected layer?",
+  },
+  {
+    slug: "policy-regulation-sustainability",
     title: "Policy, Regulation & Sustainability",
     description:
-      "How planning rules, authority requirements, incentives and long-term outcomes meet project realities.",
+      "How planning rules, authority requirements, incentives, sustainability and long-term outcomes meet project realities.",
     question:
       "How can regulatory intent, commercial feasibility, sustainability and project delivery be reconciled in practice?",
   },
@@ -46,7 +54,7 @@ export type TopicTitle = (typeof topics)[number]["title"];
 
 export type ArticleStatus = "draft" | "scheduled" | "published";
 
-export type Article = {
+export type ArticleSource = {
   slug: string;
   title: string;
   dek: string;
@@ -54,7 +62,7 @@ export type Article = {
   publishAt: string;
   status: ArticleStatus;
   contentReady: boolean;
-  topic: TopicTitle;
+  primaryTopic: TopicSlug;
   read: string;
   featured?: boolean;
   thumbnail?: string;
@@ -63,7 +71,15 @@ export type Article = {
   originalUrl?: string;
 };
 
-const articleRegistry: Article[] = [
+export type Article = ArticleSource & {
+  topic: TopicTitle;
+};
+
+export function getTopicBySlug(slug: TopicSlug) {
+  return topics.find((topic) => topic.slug === slug)!;
+}
+
+const articleRegistry: ArticleSource[] = [
   {
     slug: "one-camera-many-agencies-one-project-reality",
     title: "One Camera, Many Agencies, One Project Reality",
@@ -72,7 +88,7 @@ const articleRegistry: Article[] = [
     publishAt: "2026-08-20",
     status: "published",
     contentReady: true,
-    topic: "Construction Delivery & TOP",
+    primaryTopic: "construction-delivery-top",
     read: "14 min",
     featured: true,
     thumbnail: "/images/articles/one-camera-many-agencies-one-project-reality/01_grand-dunman-completed-waterfront.jpg",
@@ -88,7 +104,7 @@ const articleRegistry: Article[] = [
     publishAt: "2026-08-12",
     status: "published",
     contentReady: true,
-    topic: "Construction Delivery & TOP",
+    primaryTopic: "construction-delivery-top",
     read: "8 min",
     featured: true,
     thumbnail: "/images/articles/aluminium-finish-survive-twice/coating-samples-daylight.webp",
@@ -104,7 +120,7 @@ const articleRegistry: Article[] = [
     publishAt: "2026-08-04",
     status: "published",
     contentReady: true,
-    topic: "Policy, Regulation & Sustainability",
+    primaryTopic: "policy-regulation-sustainability",
     read: "10 min",
     thumbnail: "/images/articles/bet-is-expiring/early-site-works-productivity.webp",
     thumbnailAlt: "Early site works illustrating construction productivity and transformation",
@@ -119,7 +135,7 @@ const articleRegistry: Article[] = [
     publishAt: "2026-07-30",
     status: "published",
     contentReady: true,
-    topic: "Construction Delivery & TOP",
+    primaryTopic: "construction-delivery-top",
     read: "7 min",
     thumbnail: "/images/articles/top-90-day-stress-test/completed-residential-facade.webp",
     thumbnailAlt: "Completed residential facade approaching project completion",
@@ -133,7 +149,7 @@ const articleRegistry: Article[] = [
     publishAt: "2026-06-28",
     status: "published",
     contentReady: true,
-    topic: "PPVC, DfMA, Technology & Productivity",
+    primaryTopic: "ppvc-dfma-productivity",
     read: "7 min",
     thumbnail: "/images/articles/building-built-before-reached-site/ppvc-module-on-trailer.webp",
     thumbnailAlt: "PPVC module transported on a trailer before reaching site",
@@ -147,7 +163,7 @@ const articleRegistry: Article[] = [
     publishAt: "2026-06-14",
     status: "published",
     contentReady: true,
-    topic: "Development Strategy & Procurement",
+    primaryTopic: "development-strategy-procurement",
     read: "7 min",
     thumbnail: "/images/articles/contract-matters-timing-more/eci-site-workshop.webp",
     thumbnailAlt: "Early contractor involvement workshop held with the project team",
@@ -162,7 +178,7 @@ const articleRegistry: Article[] = [
     publishAt: "2026-06-03",
     status: "published",
     contentReady: true,
-    topic: "Policy, Regulation & Sustainability",
+    primaryTopic: "policy-regulation-sustainability",
     read: "5 min",
     thumbnail: "/images/articles/fire-came-before-i-entered-building-industry/fire-night-cover.webp",
     thumbnailAlt: "Wooden shophouses burning at night",
@@ -177,7 +193,7 @@ const articleRegistry: Article[] = [
     publishAt: "2026-05-10",
     status: "published",
     contentReady: true,
-    topic: "Development Strategy & Procurement",
+    primaryTopic: "development-strategy-procurement",
     read: "7 min",
     thumbnail: "/images/articles/champagne-lasts-ten-minutes/bayshore-gls-site-sign.webp",
     thumbnailAlt: "Government Land Sale site sign at Bayshore",
@@ -191,7 +207,7 @@ const articleRegistry: Article[] = [
     publishAt: "2026-07-25",
     status: "published",
     contentReady: true,
-    topic: "Policy, Regulation & Sustainability",
+    primaryTopic: "policy-regulation-sustainability",
     read: "9 min",
     thumbnail: "/images/articles/substation-went-underground/underground-substation-equipment-room.webp",
     thumbnailAlt: "Electrical equipment room within an underground substation",
@@ -205,7 +221,7 @@ const articleRegistry: Article[] = [
     publishAt: "2026-03-10",
     status: "published",
     contentReady: true,
-    topic: "Developer Leadership",
+    primaryTopic: "developer-leadership",
     read: "7 min",
     thumbnail: "/images/articles/once-you-take-over-the-ship-own-the-storm/once-you-take-over-cover.jpg",
     thumbnailAlt: "Project team conducting a construction site walkthrough",
@@ -220,7 +236,7 @@ const articleRegistry: Article[] = [
     publishAt: "2025-12-23",
     status: "published",
     contentReady: true,
-    topic: "PPVC, DfMA, Technology & Productivity",
+    primaryTopic: "technology-ai-digital-delivery",
     read: "4 min",
     thumbnail: "/images/articles/speed-vs-certainty/smart-construction-learning-journey.webp",
     thumbnailAlt: "Smart construction learning journey in China",
@@ -228,11 +244,18 @@ const articleRegistry: Article[] = [
   },
 ];
 
-export function isArticlePublic(article: Article) {
+function withTopicTitle(article: ArticleSource): Article {
+  return {
+    ...article,
+    topic: getTopicBySlug(article.primaryTopic).title,
+  };
+}
+
+export function isArticlePublic(article: ArticleSource) {
   return article.status === "published" && article.contentReady;
 }
 
-export const allArticles = articleRegistry;
-export const articles = articleRegistry.filter((article) =>
-  isArticlePublic(article),
-);
+export const allArticles = articleRegistry.map(withTopicTitle);
+export const articles = articleRegistry
+  .filter((article) => isArticlePublic(article))
+  .map(withTopicTitle);
