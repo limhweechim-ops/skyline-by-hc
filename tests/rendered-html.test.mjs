@@ -378,13 +378,12 @@ test("homepage routes first-time visitors before the five topic lenses", async (
   assert.match(homepageHtml, /Speaking or media enquiry/i);
 });
 
-test("speaking homepage route is supported by Connect form preselection", async () => {
-  const formSource = await readFile(
-    path.join(rootDir, "app", "connect", "ContactForm.tsx"),
-    "utf8",
-  );
+test("speaking homepage route preselects the speaking enquiry option", async () => {
+  const worker = await loadWorker();
+  const connectHtml = await (await render(worker, "/connect?type=speaking")).text();
 
-  assert.match(formSource, /requestedType === "speaking"/);
-  assert.match(formSource, /setEnquiryType\("Speaking or media invitation"\)/);
-  assert.match(formSource, /value=\{enquiryType\}/);
+  assert.match(
+    connectHtml,
+    /<option value="Speaking or media invitation" selected="">Speaking or media invitation<\/option>/i,
+  );
 });
