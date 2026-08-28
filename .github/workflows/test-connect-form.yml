@@ -1,0 +1,38 @@
+name: Test Connect form delivery
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  submit-test-enquiry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Submit clearly labelled test enquiry
+        shell: bash
+        run: |
+          set -euo pipefail
+          response_file="$(mktemp)"
+
+          curl --fail --silent --show-error \
+            --request POST \
+            --header "Accept: application/json" \
+            --form "_subject=Skyline website delivery test" \
+            --form "name=Skyline website test" \
+            --form "email=website-test@limhweechim.com" \
+            --form "enquiry_type=Other industry conversation" \
+            --form "message=Automated delivery test from the Skyline by HC deployment workflow. No reply is required." \
+            --output "${response_file}" \
+            "https://formspree.io/f/xkjwoowd"
+
+          if ! jq --exit-status '.ok == true' "${response_file}" >/dev/null; then
+            echo "Formspree did not accept the test enquiry." >&2
+            cat "${response_file}" >&2
+            exit 1
+          fi
+
+          echo "Formspree accepted the test enquiry for the configured inbox."
