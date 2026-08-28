@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
-export default function LegacyTopicRedirect() {
-  redirect("/topics/ppvc-dfma-productivity");
+export default function LegacyTechnologyTopicRedirect() {
+  redirect("/topics/technology-ai-digital-delivery");
 }
