@@ -1,19 +1,12 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 
 type SubmissionState = "idle" | "submitting" | "success" | "error";
 
-export function ContactForm() {
+export function ContactForm({ initialEnquiryType = "Project problem or lesson" }: { initialEnquiryType?: string }) {
   const [submissionState, setSubmissionState] = useState<SubmissionState>("idle");
-  const [enquiryType, setEnquiryType] = useState("Project problem or lesson");
-
-  useEffect(() => {
-    const requestedType = new URLSearchParams(window.location.search).get("type");
-    if (requestedType === "speaking") {
-      setEnquiryType("Speaking or media invitation");
-    }
-  }, []);
+  const [enquiryType, setEnquiryType] = useState(initialEnquiryType);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
