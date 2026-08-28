@@ -2,6 +2,11 @@ name: Test Connect form delivery
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/test-connect-form.yml
 
 permissions:
   contents: read
