@@ -84,3 +84,47 @@ jobs:
           }
 
           verify_taxonomy "https://limhweechim.com/"
+
+      - name: Verify live Connect conversion path
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          response_body="$(mktemp)"
+          curl --fail --silent --show-error --location \
+            --retry 5 --retry-all-errors --connect-timeout 10 --max-time 30 \
+            --user-agent "Mozilla/5.0 Skyline-Deployment-Check/${GITHUB_SHA}" \
+            --output "${response_body}" \
+            "https://limhweechim.com/connect?release=${GITHUB_SHA}"
+
+          grep --fixed-strings --quiet "Got an interesting project problem? Let’s compare notes." "${response_body}"
+          grep --fixed-strings --quiet "Speaking or media invitation" "${response_body}"
+          grep --fixed-strings --quiet "https://limhweechim.com/connect" "${response_body}"
+          if grep --fixed-strings --quiet "The form will be connected before the public launch." "${response_body}"; then
+            echo "Legacy form placeholder remains on /connect." >&2
+            exit 1
+          fi
+
+          verify_redirect() {
+            local source_path="$1"
+            local response_headers
+            local response_status
+            response_headers="$(mktemp)"
+            response_status="$(curl --silent --show-error \
+              --retry 5 --retry-all-errors --connect-timeout 10 --max-time 30 \
+              --user-agent "Mozilla/5.0 Skyline-Deployment-Check/${GITHUB_SHA}" \
+              --dump-header "${response_headers}" \
+              --output /dev/null \
+              --write-out '%{http_code}' \
+              "https://limhweechim.com${source_path}?release=${GITHUB_SHA}")"
+
+            if [[ "${response_status}" != "301" && "${response_status}" != "308" ]]; then
+              echo "${source_path} returned ${response_status}; expected 301 or 308." >&2
+              exit 1
+            fi
+            grep --ignore-case --quiet '^location: /connect' "${response_headers}"
+          }
+
+          verify_redirect "/contact"
+          verify_redirect "/speaking"
+          echo "Verified live Connect page and permanent legacy redirects."
