@@ -65,6 +65,22 @@ export type Article = {
 
 const articleRegistry: Article[] = [
   {
+    slug: "before-construction-can-use-ai-it-has-to-remember",
+    title: "Before Construction Can Use AI, It Has to Remember",
+    dek: "What Whole-of-Government Virtual Inspection made me reconsider about AI in construction: useful intelligence depends first on trusted project memory and disciplined information flow.",
+    date: "2 Sep 2026",
+    publishAt: "2026-09-02",
+    status: "published",
+    contentReady: true,
+    topic: "PPVC, DfMA, Technology & Productivity",
+    read: "12 min",
+    featured: true,
+    thumbnail: "/images/articles/one-camera-many-agencies-one-project-reality/03_virtual-inspection-platform-360-record.png",
+    thumbnailAlt: "Virtual inspection platform showing a shared 360-degree project record",
+    tags: ["AI in construction", "project memory", "Whole-of-Government Virtual Inspection", "CORENET X", "digital construction", "information flow"],
+    originalUrl: "https://www.linkedin.com/pulse/before-construction-can-use-artificial-intelligence-has-hwee-chim-lim-vknqc/",
+  },
+  {
     slug: "one-camera-many-agencies-one-project-reality",
     title: "One Camera, Many Agencies, One Project Reality",
     dek: "How better upstream information changed the way Grand Dunman prepared for TOP—and why the real innovation was integration, not the camera.",
