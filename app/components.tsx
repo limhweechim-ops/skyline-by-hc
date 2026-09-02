@@ -11,8 +11,9 @@ export function Footer() {
 export function Shell({children}: {children: React.ReactNode}) { return <><Header/><main>{children}</main><Footer/></>; }
 export function ArticleCard({article, index, showThumbnail = false}: {article: typeof articles[number], index?: number, showThumbnail?: boolean}) {
   const hasThumbnail = Boolean(showThumbnail && article.thumbnail);
+  const thumbnailSrc = article.thumbnail ? `${article.thumbnail}?v=${article.publishAt}` : undefined;
   return <article className="article-card" style={hasThumbnail ? {display:"grid",gridTemplateColumns:"140px 1fr",gap:"24px",alignItems:"start",minHeight:"220px"} : undefined}>
-    {hasThumbnail ? <Link href={`/articles/${article.slug}`} aria-label={`Read ${article.title}`} style={{display:"block",position:"relative",width:"140px",height:"95px",overflow:"hidden"}}><Image unoptimized src={article.thumbnail!} alt={article.thumbnailAlt} fill sizes="140px" style={{objectFit:"cover"}} /></Link> : null}
+    {hasThumbnail ? <Link href={`/articles/${article.slug}`} aria-label={`Read ${article.title}`} style={{display:"block",position:"relative",width:"140px",height:"95px",overflow:"hidden"}}><Image unoptimized src={thumbnailSrc!} alt={article.thumbnailAlt} fill sizes="140px" style={{objectFit:"cover"}} /></Link> : null}
     <div style={hasThumbnail ? {display:"flex",flexDirection:"column",minHeight:"100%"} : undefined}>
       <div className="article-meta"><span>{index ? String(index).padStart(2,"0") : article.topic}</span><span>{article.date}</span></div>
       <h3 style={hasThumbnail ? {margin:"22px 0 14px",fontSize:"24px"} : undefined}><Link href={`/articles/${article.slug}`}>{article.title}</Link></h3>
