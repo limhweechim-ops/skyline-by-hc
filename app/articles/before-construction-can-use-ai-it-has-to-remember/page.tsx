@@ -95,21 +95,6 @@ export default function BeforeConstructionCanUseAIArticle() {
         </header>
 
         <div className="article-body">
-          <figure className="article-image article-image-wide">
-            <Image
-              unoptimized
-              src={`${wogImageBase}/03_virtual-inspection-platform-360-record.png`}
-              alt="Virtual inspection platform showing a shared 360-degree project record"
-              width={700}
-              height={438}
-              sizes="(max-width: 800px) 90vw, 900px"
-              priority
-            />
-            <figcaption>
-              The camera is only the witness. The more consequential question is whether the evidence it captures becomes trusted, structured project memory.
-            </figcaption>
-          </figure>
-
           <p className="lead">
             The 360-degree camera fits in one hand. My partner normally uses it for our family trips, and it looks too ordinary for the attention it now gets on site — no robot arm, no flashing light, no visible ambition to transform the industry. It just records what is there.
           </p>
@@ -151,14 +136,14 @@ export default function BeforeConstructionCanUseAIArticle() {
           <figure className="article-image article-image-wide">
             <Image
               unoptimized
-              src={`${wogImageBase}/04_whole-of-government-site-coordination.png`}
-              alt="Project and regulatory teams coordinating on site during virtual inspection"
+              src={`${wogImageBase}/03_virtual-inspection-platform-360-record.png`}
+              alt="Virtual inspection platform showing a shared 360-degree project record"
               width={700}
-              height={425}
+              height={438}
               sizes="(max-width: 800px) 90vw, 900px"
             />
             <figcaption>
-              One project reality can support several independent professional and regulatory judgements without collapsing their different mandates into one.
+              The camera is only the witness. The more consequential question is whether the evidence it captures becomes trusted, structured project memory.
             </figcaption>
           </figure>
 
