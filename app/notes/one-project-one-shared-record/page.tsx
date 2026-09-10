@@ -11,7 +11,7 @@ const originalUrl =
   "https://www.linkedin.com/posts/hweechimlim_ibew2026-wogvi-virtualtop-share-7503819239179390978-PXq8/";
 
 export const metadata: Metadata = {
-  title: `${title} | Skyline by HC`,
+  title,
   description,
   alternates: { canonical },
   openGraph: {
