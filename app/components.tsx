@@ -15,8 +15,9 @@ export function ArticleCard({article, index, showThumbnail = false}: {article: t
   const hasThumbnail = Boolean(showThumbnail && article.thumbnail);
   const href = article.href ?? `/articles/${article.slug}`;
   const label = article.format === "Field note" ? `Field note · ${article.topic}` : article.topic;
+  const thumbnailPosition = article.slug === "one-project-one-shared-record" ? "center top" : "center";
   return <article className={`article-card${hasThumbnail ? " has-thumbnail" : ""}`}>
-    {hasThumbnail && <Link className="article-thumbnail" href={href} aria-label={`Read ${article.title}`}><Image unoptimized src={`${article.thumbnail}?v=${article.publishAt}`} alt={article.thumbnailAlt || article.title} fill sizes="(max-width: 800px) 90vw, 40vw" style={{objectFit:"cover"}} /></Link>}
+    {hasThumbnail && <Link className="article-thumbnail" href={href} aria-label={`Read ${article.title}`}><Image unoptimized src={`${article.thumbnail}?v=${article.publishAt}`} alt={article.thumbnailAlt || article.title} fill sizes="(max-width: 800px) 90vw, 40vw" style={{objectFit:"cover", objectPosition:thumbnailPosition}} /></Link>}
     <div className="article-card-copy">
       <div className="article-meta"><span>{index ? String(index).padStart(2,"0") : label}</span><time dateTime={article.publishAt}>{article.date}</time></div>
       <h3><Link href={href}>{article.title}</Link></h3>
