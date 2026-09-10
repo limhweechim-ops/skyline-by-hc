@@ -61,9 +61,28 @@ export type Article = {
   thumbnailAlt?: string;
   tags: string[];
   originalUrl?: string;
+  format?: "Essay" | "Field note";
+  href?: string;
 };
 
 const articleRegistry: Article[] = [
+  {
+    slug: "one-project-one-shared-record",
+    title: "One Project. One Shared Record.",
+    dek: "A field note from IBEW 2026 on what the Grand Dunman WOG Virtual Inspection pilot revealed about technology, shared evidence and earlier issue resolution.",
+    date: "10 Sep 2026",
+    publishAt: "2026-09-10",
+    status: "published",
+    contentReady: true,
+    topic: "Construction Delivery & TOP",
+    read: "2 min",
+    format: "Field note",
+    href: "/notes/one-project-one-shared-record",
+    thumbnail: "/images/notes/ibew-2026-wog-vi-stage.jpg",
+    thumbnailAlt: "Lim Hwee Chim speaking about Whole-of-Government Virtual Inspection at IBEW 2026",
+    tags: ["IBEW 2026", "WOG VI", "Virtual TOP", "Grand Dunman", "construction innovation", "shared project record"],
+    originalUrl: "https://www.linkedin.com/posts/hweechimlim_ibew2026-wogvi-virtualtop-share-7503819239179390978-PXq8/",
+  },
   {
     slug: "before-construction-can-use-ai-it-has-to-remember",
     title: "Before Construction Can Use AI, It Has to Remember",
