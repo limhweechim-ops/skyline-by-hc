@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 };
 
 export default function ConstructionDeliveryTopic() {
-  const primaryArticles = articles.filter(
-    (article) => article.topic === primaryTopic,
-  );
+  const primaryArticles = articles
+    .filter((article) => article.topic === primaryTopic)
+    .sort((a, b) => b.publishAt.localeCompare(a.publishAt));
   const relatedArticles = relatedSlugs
     .map((slug) => articles.find((article) => article.slug === slug))
     .filter((article): article is (typeof articles)[number] => Boolean(article));
@@ -40,9 +40,9 @@ export default function ConstructionDeliveryTopic() {
       url: "https://limhweechim.com/about",
     },
     hasPart: primaryArticles.map((article) => ({
-      "@type": "Article",
+      "@type": article.format === "Field note" ? "BlogPosting" : "Article",
       headline: article.title,
-      url: `https://limhweechim.com/articles/${article.slug}`,
+      url: `https://limhweechim.com${article.href ?? `/articles/${article.slug}`}`,
     })),
   };
 
