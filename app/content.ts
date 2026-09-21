@@ -67,6 +67,21 @@ export type Article = {
 
 const articleRegistry: Article[] = [
   {
+    slug: "i-knew-the-factories-i-had-not-yet-seen-guangdong",
+    title: "I Knew the Factories. I Had Not Yet Seen Guangdong.",
+    dek: "What one extra night in Shenzhen changed about how I see the Greater Bay Area—and what developers can learn by looking beyond the product to the industrial system behind it.",
+    date: "21 Sep 2026",
+    publishAt: "2026-09-21",
+    status: "published",
+    contentReady: true,
+    topic: "Development Strategy & Procurement",
+    read: "10 min",
+    featured: true,
+    thumbnail: "/images/articles/i-knew-the-factories-i-had-not-yet-seen-guangdong/05-shenzhen-talent-park-skyline.webp",
+    thumbnailAlt: "Tree-lined running path and skyline at Shenzhen Talent Park",
+    tags: ["Guangdong", "Greater Bay Area", "Shenzhen", "construction sourcing", "developer procurement", "supply chain", "market sounding"],
+  },
+  {
     slug: "one-project-one-shared-record",
     title: "One Project. One Shared Record.",
     dek: "A field note from IBEW 2026 on what the Grand Dunman WOG Virtual Inspection pilot revealed about technology, shared evidence and earlier issue resolution.",
