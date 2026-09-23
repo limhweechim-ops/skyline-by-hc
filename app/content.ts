@@ -148,8 +148,8 @@ const articleRegistry: Article[] = [
   },
   {
     slug: "bet-is-expiring",
-    title: "BET Is Expiring. The Transformation Should Not.",
-    dek: "As Singapore’s BET incentive expires, Lim Hwee Chim examines what should replace it to sustain construction productivity, innovation and industry transformation.",
+    title: "BET GFA Is Expiring. The Transformation Should Not.",
+    dek: "As Singapore’s BET bonus GFA scheme approaches expiry, Lim Hwee Chim examines what should replace it to sustain construction productivity and industry transformation.",
     date: "4 Aug 2026",
     publishAt: "2026-08-04",
     status: "published",
@@ -158,8 +158,7 @@ const articleRegistry: Article[] = [
     read: "10 min",
     thumbnail: "/images/articles/bet-is-expiring/early-site-works-productivity.webp",
     thumbnailAlt: "Early site works illustrating construction productivity and transformation",
-    tags: ["BET GFA", "construction transformation", "BCA", "URA"],
-    originalUrl: "https://www.linkedin.com/pulse/bet-expiring-transformation-should-hwee-chim-lim-66gwc/",
+    tags: ["BET GFA", "bonus GFA", "construction transformation", "BCA", "URA"],
   },
   {
     slug: "top-90-day-stress-test",
