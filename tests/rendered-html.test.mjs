@@ -95,6 +95,29 @@ test("every public page declares its own canonical URL", async () => {
   }
 });
 
+test("BET article declares the website as its definitive canonical edition", async () => {
+  const worker = await loadWorker();
+  const html = await (await render(worker, "/articles/bet-is-expiring")).text();
+
+  assert.match(
+    html,
+    /<title>BET GFA Is Expiring\. The Transformation Should Not\. \| Skyline by HC<\/title>/i,
+  );
+  assert.doesNotMatch(html, /Skyline by HC \| Skyline by HC/i);
+  assert.match(
+    html,
+    /<meta(?=[^>]*name=["']description["'])(?=[^>]*content=["']As Singapore’s BET bonus GFA scheme approaches expiry, Lim Hwee Chim examines what should replace it to sustain construction productivity and industry transformation\.["'])[^>]*>/i,
+  );
+  assert.ok(
+    html.includes(
+      'rel="canonical" href="https://limhweechim.com/articles/bet-is-expiring"',
+    ),
+  );
+  assert.match(html, /This is the definitive Skyline by HC edition\./i);
+  assert.match(html, /Also published on/i);
+  assert.doesNotMatch(html, /Originally published on/i);
+});
+
 test("every internal page link resolves and every local image exists", async () => {
   const worker = await loadWorker();
   const links = new Set();
