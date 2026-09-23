@@ -1,6 +1,42 @@
 import type { Metadata } from "next"; import { notFound } from "next/navigation"; import Image from "next/image"; import Link from "next/link"; import { Shell } from "../../components"; import { articles } from "../../content";
 export function generateStaticParams(){return articles.map(a=>({slug:a.slug}))}
-export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params;const a=articles.find(x=>x.slug===slug);return a?{title:`${a.title} | Skyline by HC`,description:a.dek,alternates:{canonical:`/articles/${a.slug}`},openGraph:{title:a.title,description:a.dek,type:"article",images:slug==="top-90-day-stress-test"?[{url:"/images/articles/top-90-day-stress-test/towers-nearing-top.webp",width:1010,height:747,alt:"Residential towers nearing TOP during the final stage of construction"}]:slug==="bet-is-expiring"?[{url:"/images/articles/bet-is-expiring/ppvc-construction-at-scale.webp",width:1100,height:825,alt:"PPVC residential development under construction with modules installed at scale"}]:undefined}}:{}}
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{
+  const {slug}=await params;
+  const a=articles.find(x=>x.slug===slug);
+  if(!a)return {};
+
+  const canonical=`https://limhweechim.com/articles/${a.slug}`;
+  const images=slug==="top-90-day-stress-test"
+    ?[{url:"/images/articles/top-90-day-stress-test/towers-nearing-top.webp",width:1010,height:747,alt:"Residential towers nearing TOP during the final stage of construction"}]
+    :slug==="bet-is-expiring"
+      ?[{url:"/images/articles/bet-is-expiring/ppvc-construction-at-scale.webp",width:1100,height:825,alt:"PPVC residential development under construction with modules installed at scale"}]
+      :undefined;
+
+  return {
+    title:a.title,
+    description:a.dek,
+    alternates:{canonical},
+    keywords:slug==="bet-is-expiring"
+      ?["BET GFA","BET bonus GFA","Built Environment Transformation GFA Incentive Scheme","construction productivity","BCA","URA"]
+      :undefined,
+    openGraph:{
+      title:a.title,
+      description:a.dek,
+      type:"article",
+      url:canonical,
+      siteName:"Skyline by HC",
+      publishedTime:a.publishAt,
+      authors:["https://limhweechim.com/about"],
+      images,
+    },
+    twitter:{
+      card:"summary_large_image",
+      title:a.title,
+      description:a.dek,
+      images:images?.map(image=>image.url),
+    },
+  };
+}
 
 function TopArticle(){return <>
   <p className="lead">The last tower crane came down over a weekend. By Monday, the site looked finished from the road: hoarding still up, the skyline above it complete, the towers finally matching the artist&apos;s impression released more than two and a half years earlier.</p>
@@ -178,7 +214,7 @@ function BetArticle(){return <>
   <div className="takeaway"><span>Practitioner takeaway</span><strong>The next scheme should not keep buying what the industry already knows how to do. The frontier has moved. The policy should move with it.</strong></div>
   <h2>Sources consulted</h2>
   <ul><li>Building and Construction Authority — Built Environment Transformation Gross Floor Area Incentive Scheme</li><li>BCA/URA Joint Circular BCA/ITM GFA/2021–11-ES and URA/PB/2021/06-DCG</li><li>Urban Redevelopment Authority — Circular DC21–06</li><li>Building and Construction Authority — Mandatory Higher Green Mark Standard for Government Land Sales sites</li><li>Building and Construction Authority — APCS and PPVC requirements under the Buildability Framework</li></ul>
-  <p className="original-note">Originally published on <a href="https://www.linkedin.com/pulse/bet-expiring-transformation-should-hwee-chim-lim-66gwc/" target="_blank" rel="noreferrer">LinkedIn</a> on 4 August 2026.</p>
+  <p className="original-note">This is the definitive Skyline by HC edition. Also published on <a href="https://www.linkedin.com/pulse/bet-expiring-transformation-should-hwee-chim-lim-66gwc/" target="_blank" rel="noreferrer">LinkedIn</a> on 4 August 2026.</p>
   <p className="author-note">Lim Hwee Chim is a Singapore property development leader and the founder of Skyline by HC, where she writes about how upstream developer decisions shape construction outcomes.</p>
 </>}
 
