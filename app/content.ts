@@ -67,6 +67,21 @@ export type Article = {
 
 const articleRegistry: Article[] = [
   {
+    slug: "the-smallest-risk-on-a-construction-project",
+    title: "The Smallest Risk on a Construction Project",
+    dek: "A five-millimetre insect, the long journey of a cabinet, and why traceability matters when termites or wood borers surface after handover.",
+    date: "23 Sep 2026",
+    publishAt: "2026-09-23",
+    status: "published",
+    contentReady: true,
+    topic: "Construction Delivery & TOP",
+    read: "8 min",
+    featured: true,
+    thumbnail: "/images/articles/the-smallest-risk-on-a-construction-project/termite-cabinet-risk-hero.webp",
+    thumbnailAlt: "Graphic showing powder beneath a timber cabinet as the first sign of a small but traceable construction risk",
+    tags: ["termites", "wood-boring beetles", "carpentry", "construction quality", "traceability", "timber storage"],
+  },
+  {
     slug: "i-knew-the-factories-i-had-not-yet-seen-guangdong",
     title: "I Knew the Factories. I Had Not Yet Seen Guangdong.",
     dek: "What one extra night in Shenzhen changed about how I see the Greater Bay Area—and what developers can learn by looking beyond the product to the industrial system behind it.",

@@ -9,6 +9,7 @@ const developmentPreviewMeta =
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const articleSlugs = [
+  "the-smallest-risk-on-a-construction-project",
   "i-knew-the-factories-i-had-not-yet-seen-guangdong",
   "one-camera-many-agencies-one-project-reality",
   "aluminium-finish-survive-twice",
@@ -210,6 +211,25 @@ test("construction delivery topic hub links to the aluminium finish article", as
     hubHtml,
     /href=["']\/articles\/aluminium-finish-survive-twice["']/i,
   );
+  assert.match(
+    hubHtml,
+    /href=["']\/articles\/the-smallest-risk-on-a-construction-project["']/i,
+  );
+});
+
+test("smallest risk article renders its graphics and article metadata", async () => {
+  const worker = await loadWorker();
+  const html = await (
+    await render(worker, "/articles/the-smallest-risk-on-a-construction-project")
+  ).text();
+
+  assert.match(html, /<title>The Smallest Risk on a Construction Project \| Skyline by HC<\/title>/i);
+  assert.match(html, /The quality of the cabinet was decided long before the pellets appeared\./i);
+  assert.match(html, /termite-cabinet-risk-hero\.webp/i);
+  assert.match(html, /cabinet-supply-chain-journey\.webp/i);
+  assert.match(html, /timber-basement-storage-controls\.webp/i);
+  assert.match(html, /termites-and-wood-borers-comparison\.webp/i);
+  assert.match(html, /infestation-risk-by-cabinet-stage\.webp/i);
 });
 
 test("policy and regulation topic hub links to its related articles", async () => {
