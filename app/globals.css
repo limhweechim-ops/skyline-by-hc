@@ -31,3 +31,8 @@
 /* About: selected experience */
 .selected-experience{margin:65px 0}.selected-experience>h2{margin-top:0}.experience-interests{display:grid;grid-template-columns:1fr 1fr;gap:13px 34px;margin:24px 0 42px;padding:0;list-style:none}.experience-interests li{position:relative;padding:14px 0 14px 22px;border-top:1px solid var(--line);font:15px/1.55 Georgia,serif;color:#3f4a46}.experience-interests li:before{content:"";position:absolute;left:0;top:21px;width:6px;height:6px;background:var(--rust);border-radius:50%}.evidence-entries{border-top:1px solid var(--line)}.evidence-entries article{padding:30px 0;border-bottom:1px solid var(--line)}.evidence-entries h3{font:400 25px/1.25 Georgia,serif;margin:0 0 12px}.evidence-entries p{font-size:16px;line-height:1.65;margin:0 0 22px}.evidence-entries .text-link{display:inline-block;font-family:Arial,Helvetica,sans-serif;font-size:9px}.evidence-links{display:flex;flex-wrap:wrap;gap:26px}
 @media(max-width:800px){.selected-experience{margin:50px 0}.experience-interests{grid-template-columns:1fr;gap:0}.evidence-links{display:grid;gap:20px}}
+
+
+/* Featured essay image containment */
+.feature-photo{position:relative;overflow:hidden;min-width:0;background:var(--paper)}
+@media(max-width:800px){.feature-photo{min-height:clamp(260px,68vw,440px)}}
