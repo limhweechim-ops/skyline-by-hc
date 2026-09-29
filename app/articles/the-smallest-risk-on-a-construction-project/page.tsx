@@ -37,7 +37,7 @@ export default function SmallestRiskArticle() {
     headline: title,
     description,
     datePublished: "2026-09-23",
-    dateModified: "2026-09-23",
+    dateModified: "2026-09-29",
     mainEntityOfPage: `https://limhweechim.com${canonical}`,
     author: {
       "@type": "Person",
@@ -143,6 +143,20 @@ export default function SmallestRiskArticle() {
           <figure className="article-image article-image-wide">
             <Image
               unoptimized
+              src={`${imageBase}/cabinet-factory-handling.webp`}
+              alt="Factory floor with board cutting and handling stations, workers and stacked panels"
+              width={1600}
+              height={1200}
+              sizes="(max-width: 900px) 92vw, 900px"
+            />
+            <figcaption>
+              During a factory visit, boards move between cutting and handling stations. The treatment and batch records must travel with the material beyond this floor.
+            </figcaption>
+          </figure>
+
+          <figure className="article-image article-image-wide">
+            <Image
+              unoptimized
               src={`${imageBase}/cabinet-supply-chain-journey.webp`}
               alt="Eight-stage journey of a cabinet from sawmill and treatment through factory, shipping, site storage, installation and handover"
               width={2048}
@@ -169,6 +183,20 @@ export default function SmallestRiskArticle() {
           <p>
             How it waits matters. Boards should sit on pallets off the slab, away from walls and wet areas, with room for air to move between them. Shrink-wrapping helps, but only if the wrap stays intact and the timber was dry when it was sealed. Wrap damp boards and you have not protected them. You have built them a small humidity chamber.
           </p>
+
+          <figure className="article-image article-image-portrait">
+            <Image
+              unoptimized
+              src={`${imageBase}/wrapped-board-factory-storage.webp`}
+              alt="Wrapped board stacks raised on timber pallets inside a factory storage area"
+              width={1095}
+              height={1436}
+              sizes="(max-width: 800px) 82vw, 520px"
+            />
+            <figcaption>
+              Wrapped boards on pallets during a factory visit. The raised stacks and wrapping are visible; the photo alone cannot confirm whether the boards were dry when packed or which batch they belong to.
+            </figcaption>
+          </figure>
 
           <figure className="article-image article-image-wide">
             <Image
