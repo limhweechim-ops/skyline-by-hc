@@ -7,15 +7,26 @@ const slug = "the-smallest-risk-on-a-construction-project";
 const canonical = `/articles/${slug}`;
 const imageBase = `/images/articles/${slug}`;
 const title = "The Smallest Risk on a Construction Project";
+const seoTitle =
+  "Termites and Wood Borers in Construction: The Smallest Risk on a Project";
 const description =
-  "A five-millimetre insect, the long journey of a cabinet, and why traceability matters when termites or wood borers surface after handover.";
+  "A developer-side examination of termites and wood borers in condominium cabinetry—from timber treatment and basement storage to batch traceability and post-handover investigation.";
+const searchThemes = [
+  "termites in new condominiums",
+  "drywood termites in wardrobes",
+  "wood-boring beetles",
+  "timber storage during construction",
+  "cabinet batch traceability",
+  "Singapore construction defects",
+];
 
 export const metadata: Metadata = {
-  title: `${title} | Skyline by HC`,
+  title: { absolute: seoTitle },
   description,
+  keywords: searchThemes,
   alternates: { canonical },
   openGraph: {
-    title,
+    title: seoTitle,
     description,
     type: "article",
     url: canonical,
@@ -37,7 +48,7 @@ export default function SmallestRiskArticle() {
     headline: title,
     description,
     datePublished: "2026-09-23",
-    dateModified: "2026-09-29",
+    dateModified: "2026-10-03",
     mainEntityOfPage: `https://limhweechim.com${canonical}`,
     author: {
       "@type": "Person",
@@ -50,15 +61,7 @@ export default function SmallestRiskArticle() {
       url: "https://limhweechim.com",
     },
     image: `https://limhweechim.com${imageBase}/termite-cabinet-risk-hero.webp`,
-    keywords: [
-      "termites in Singapore",
-      "wood-boring beetles",
-      "drywood termites",
-      "subterranean termites",
-      "carpentry quality",
-      "construction traceability",
-      "timber storage",
-    ],
+    keywords: searchThemes,
   };
 
   return (
@@ -73,7 +76,7 @@ export default function SmallestRiskArticle() {
           <p className="eyebrow">Construction Delivery &amp; TOP</p>
           <h1>{title}</h1>
           <p className="standfirst">
-            A five-millimetre insect, and the long journey of a cabinet
+            How termites and wood borers expose hidden risks in timber treatment, storage and construction traceability
           </p>
           <div className="byline">
             <span>By Lim Hwee Chim</span>
