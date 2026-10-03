@@ -223,7 +223,11 @@ test("smallest risk article renders its graphics and article metadata", async ()
     await render(worker, "/articles/the-smallest-risk-on-a-construction-project")
   ).text();
 
-  assert.match(html, /<title>The Smallest Risk on a Construction Project \| Skyline by HC<\/title>/i);
+  assert.match(html, /<title>Termites and Wood Borers in Construction: The Smallest Risk on a Project<\/title>/i);
+  assert.match(html, /How termites and wood borers expose hidden risks in timber treatment, storage and construction traceability/i);
+  assert.match(html, /A developer-side examination of termites and wood borers in condominium cabinetry/i);
+  assert.match(html, /termites in new condominiums/i);
+  assert.match(html, /Singapore construction defects/i);
   assert.match(html, /The quality of the cabinet was decided long before the pellets appeared\./i);
   assert.match(html, /termite-cabinet-risk-hero\.webp/i);
   assert.match(html, /cabinet-supply-chain-journey\.webp/i);
