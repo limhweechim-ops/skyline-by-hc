@@ -67,6 +67,21 @@ export type Article = {
 
 const articleRegistry: Article[] = [
   {
+    slug: "my-love-hate-relationship-with-natural-stones",
+    title: "My Love-Hate Relationship with Natural Stones",
+    dek: "Why natural stone can be extraordinary in a finished building—and demanding long before handover, from dry-lay and veining to moisture, mechanical fixing and replacement risk.",
+    date: "4 Oct 2026",
+    publishAt: "2026-10-04",
+    status: "published",
+    contentReady: true,
+    topic: "Construction Delivery & TOP",
+    read: "7 min",
+    featured: true,
+    thumbnail: "/images/articles/my-love-hate-relationship-with-natural-stones/carrara-quarry-natural-stone.jpg",
+    thumbnailAlt: "Carrara marble quarry cut into white terraces with excavators working below",
+    tags: ["natural stone", "marble", "marble dry lay", "Jura Beige", "Belvedere stone", "mechanical fixing", "material selection", "construction quality"],
+  },
+  {
     slug: "the-smallest-risk-on-a-construction-project",
     title: "The Smallest Risk on a Construction Project",
     dek: "How termites and wood borers expose hidden risks in timber treatment, storage and construction traceability",
