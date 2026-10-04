@@ -68,7 +68,7 @@ export type Article = {
 const articleRegistry: Article[] = [
   {
     slug: "my-love-hate-relationship-with-natural-stones",
-    title: "My Love-Hate Relationship with Natural Stones",
+    title: "My Love-Hate relationship with Natural Stone",
     dek: "Why natural stone can be extraordinary in a finished building—and demanding long before handover, from dry-lay and veining to moisture, mechanical fixing and replacement risk.",
     date: "4 Oct 2026",
     publishAt: "2026-10-04",
