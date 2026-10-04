@@ -6,8 +6,8 @@ import { Shell } from "../../components";
 const slug = "my-love-hate-relationship-with-natural-stones";
 const canonical = `/articles/${slug}`;
 const imageBase = `/images/articles/${slug}`;
-const title = "My Love-Hate Relationship with Natural Stones";
-const seoTitle = "Natural Stone in Construction: My Love-Hate Relationship with Marble";
+const title = "My Love-Hate relationship with Natural Stone";
+const seoTitle = title;
 const description =
   "A developer-side field note on natural stone, marble dry-lay, veining, moisture, mechanical fixing and why beautiful stone can create demanding delivery risks.";
 const searchThemes = [
