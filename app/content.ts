@@ -67,6 +67,22 @@ export type Article = {
 
 const articleRegistry: Article[] = [
   {
+    slug: "how-i-have-worked-with-ai",
+    title: "How I Have Worked with AI",
+    dek: "Lim Hwee Chim shares four ways she uses AI in property development: preserving decision context, challenging assumptions, anticipating risks and preparing for human conversations.",
+    date: "9 Oct 2026",
+    publishAt: "2026-10-09",
+    status: "published",
+    contentReady: true,
+    topic: "PPVC, DfMA, Technology & Productivity",
+    read: "5 min",
+    featured: true,
+    thumbnail: "/images/articles/how-i-have-worked-with-ai/long-nosed-character.jpg",
+    thumbnailAlt: "Long-nosed wooden character beneath a painted ceiling",
+    tags: ["AI in property development", "AI in construction", "human judgement", "developer leadership", "project memory", "HC-DIS"],
+    originalUrl: "https://limhweechim.substack.com/p/how-i-have-worked-with-ai",
+  },
+  {
     slug: "my-love-hate-relationship-with-natural-stones",
     title: "My Love-Hate relationship with Natural Stone",
     dek: "Why natural stone can be extraordinary in a finished building—and demanding long before handover, from dry-lay and veining to moisture, mechanical fixing and replacement risk.",

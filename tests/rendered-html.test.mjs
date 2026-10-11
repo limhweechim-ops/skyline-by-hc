@@ -9,6 +9,7 @@ const developmentPreviewMeta =
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const articleSlugs = [
+  "how-i-have-worked-with-ai",
   "the-smallest-risk-on-a-construction-project",
   "i-knew-the-factories-i-had-not-yet-seen-guangdong",
   "one-camera-many-agencies-one-project-reality",
@@ -466,4 +467,34 @@ test("About presents restrained, linked evidence before Why Skyline exists", asy
   );
   assert.match(aboutHtml, /href=["']\/articles\/bet-is-expiring["']/i);
   assert.doesNotMatch(aboutHtml, /tender amount|confidential|General Manager/i);
+});
+
+test("AI essay preserves its four practices and declares the website canonical", async () => {
+  const worker = await loadWorker();
+  const route = "/articles/how-i-have-worked-with-ai";
+  const response = await render(worker, route);
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.equal([...html.matchAll(/<h1[\s>]/g)].length, 1);
+  assert.ok(html.includes('rel="canonical" href="https://limhweechim.com' + route + '"'));
+  for (const heading of [
+    "One: remember the reason, not the record",
+    "Two: ask it to disagree",
+    "Three: read backwards from the consequence",
+    "Four: the room still matters",
+  ]) assert.ok(html.includes(heading), "Missing practice: " + heading);
+  assert.match(html, /It can prepare me for the room\. It cannot walk in for me\./);
+  assert.match(html, /judgement-agency-taste\.png/);
+  assert.match(html, /long-nosed-character\.jpg/);
+  assert.match(html, /application\/ld\+json/);
+  assert.match(html, /"datePublished":"2026-10-09"/);
+  assert.match(html, /"name":"Lim Hwee Chim"/);
+  assert.match(html, /name="robots" content="index, follow"/);
+  assert.match(html, /Skyline Letters on Substack/);
+  for (const listing of ["/", "/articles", "/topics/ppvc-dfma-productivity"]) {
+    const listingHtml = await (await render(worker, listing)).text();
+    assert.ok(listingHtml.includes(route), listing + " is missing the AI article");
+  }
+  const sitemap = await readFile(path.join(rootDir, "public/sitemap.xml"), "utf8");
+  assert.ok(sitemap.includes("https://limhweechim.com" + route));
 });
