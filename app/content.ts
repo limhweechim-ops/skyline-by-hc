@@ -66,6 +66,29 @@ export type Article = {
 };
 
 const articleRegistry: Article[] = [
+{
+  "slug": "why-they-still-want-to-build-here",
+  "title": "Why They Still Want to Build Here",
+  "dek": "Why international contractors keep pursuing Singapore construction projects—and how developer readiness helps preserve the predictability that attracts them.",
+  "date": "20 Oct 2026",
+  "publishAt": "2026-10-20",
+  "status": "published",
+  "contentReady": true,
+  "topic": "Development Strategy & Procurement",
+  "read": "5 min",
+  "featured": true,
+  "thumbnail": "/images/articles/why-they-still-want-to-build-here/marina-bay-construction-skyline.webp",
+  "thumbnailAlt": "Illustration of tower cranes and a construction site overlooking Singapore’s Marina Bay skyline",
+  "tags": [
+    "Singapore construction",
+    "international contractors",
+    "Chinese contractors",
+    "procurement",
+    "project readiness",
+    "construction predictability"
+  ],
+  "originalUrl": "https://limhweechim.substack.com/p/why-they-still-want-to-build-here"
+},
   {
     slug: "how-i-have-worked-with-ai",
     title: "How I Have Worked with AI",
