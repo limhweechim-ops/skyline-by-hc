@@ -8,7 +8,7 @@ export function Header() {
   return <header className="site-header"><Link className="brand" href="/"><span>Lim Hwee Chim</span><small>Skyline by HC</small></Link><Navigation/></header>;
 }
 export function Footer() {
-  return <footer><div><p className="footer-title">Skyline by HC</p><p>Practitioner writing on the decisions that shape Singapore’s built environment.</p></div><div className="footer-links"><Link href="/articles">Articles</Link><Link href="/about">About</Link><Link href="/connect">Connect</Link></div><p className="copyright">© 2026 Lim Hwee Chim</p></footer>;
+  return <footer><div><p className="footer-title">Skyline by HC</p><p>Practitioner writing on the decisions that shape Singapore’s built environment.</p></div><div className="footer-links"><Link href="/articles">Articles</Link><Link href="/about">About</Link><Link href="/connect">Connect</Link><a href="https://www.linkedin.com/in/hweechimlim" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://www.instagram.com/hcl.writes/" target="_blank" rel="noopener noreferrer">Instagram</a></div><p className="copyright">© 2026 Lim Hwee Chim</p></footer>;
 }
 export function Shell({children}: {children: React.ReactNode}) { return <><a className="skip-link" href="#main-content">Skip to content</a><Header/><ReadingTools/><main id="main-content" tabIndex={-1}>{children}</main><Footer/></>; }
 export function ArticleCard({article, index, showThumbnail = false}: {article: typeof articles[number], index?: number, showThumbnail?: boolean}) {

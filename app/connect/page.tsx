@@ -28,6 +28,15 @@ export default async function Connect({ searchParams }: ConnectProps){
       <p>Construction throws up plenty of strange problems. If you are working through one, testing an idea, or simply see something worth discussing, feel free to get in touch.</p>
     </section>
 
+    <section className="media-note" aria-labelledby="social-heading">
+      <p className="eyebrow">Follow HC</p>
+      <h2 id="social-heading">Continue the conversation.</h2>
+      <div className="evidence-links">
+        <a className="text-link" href="https://www.linkedin.com/in/hweechimlim" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        <a className="text-link" href="https://www.instagram.com/hcl.writes/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
     <section className="speaking-grid">
       <div>
         <p className="eyebrow">Things HC is curious about</p>

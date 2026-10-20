@@ -18,7 +18,8 @@ const profilePageJsonLd = {
     alternateName: "Hwee Chim Lim",
     url: "https://limhweechim.com/about",
     sameAs: [
-      "https://sg.linkedin.com/in/hweechimlim",
+      "https://www.linkedin.com/in/hweechimlim",
+      "https://www.instagram.com/hcl.writes/",
       "https://medium.com/@hcl.writes",
     ],
   },
