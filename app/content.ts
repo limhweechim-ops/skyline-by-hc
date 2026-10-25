@@ -66,6 +66,22 @@ export type Article = {
 };
 
 const articleRegistry: Article[] = [
+  {
+    slug: "who-pays-for-a-better-building",
+    title: "Who Pays for a Better Building—and Who Benefits?",
+    dek: "Green Mark Version 7 meets the residential developer’s spreadsheet: who pays for maintainability and energy savings, who benefits after handover, and what developers should decide before tender.",
+    date: "25 Oct 2026",
+    publishAt: "2026-10-25",
+    status: "published",
+    contentReady: true,
+    topic: "Policy, Regulation & Sustainability",
+    read: "6 min",
+    featured: true,
+    thumbnail: "/images/articles/who-pays-for-a-better-building/rooftop-solar.jpg",
+    thumbnailAlt: "Solar panels covering the rooftop of a residential building in Singapore",
+    tags: ["Green Mark Version 7", "BCA", "sustainability", "residential developers", "maintainability", "MCST", "life cycle cost", "solar energy"]
+  },
+
 {
   "slug": "why-they-still-want-to-build-here",
   "title": "Why They Still Want to Build Here",
