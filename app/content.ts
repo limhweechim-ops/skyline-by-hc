@@ -77,6 +77,8 @@ const articleRegistry: Article[] = [
     topic: "Policy, Regulation & Sustainability",
     read: "6 min",
     featured: true,
+    thumbnail: "/images/articles/who-pays-for-a-better-building/rooftop-solar.jpg",
+    thumbnailAlt: "Solar panels installed on the rooftop of a residential development in Singapore",
     tags: ["Green Mark Version 7", "BCA", "sustainability", "residential developers", "maintainability", "MCST", "life cycle cost", "solar energy"]
   },
 
