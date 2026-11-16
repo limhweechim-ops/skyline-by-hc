@@ -32,12 +32,6 @@ export default function Home() {
           <p>Share a difficult interface, PPVC issue, delivery constraint or experiment worth testing.</p>
           <Link className="button" href="/connect">Send HC a note <span>→</span></Link>
         </article>
-        <article>
-          <span>03</span>
-          <h3>Speaking or media enquiry</h3>
-          <p>Invite HC to contribute a practitioner perspective on development, construction delivery, technology or regulation.</p>
-          <Link className="button" href="/connect?type=speaking">Start a conversation <span>→</span></Link>
-        </article>
       </div>
     </section>
     <section className="topics-home section-pad"><div className="topics-intro"><p className="eyebrow">The body of work</p><h2>Five lenses.<br/>One connected system.</h2><p>Construction is often treated as a site problem. Skyline looks further upstream—at how developer intent travels through policy, procurement, design and delivery.</p></div><div className="topic-list">{topics.map((t,i)=><Link href={`/topics/${t.slug}`} key={t.slug}><span>{String(i+1).padStart(2,"0")}</span><strong>{t.title}</strong><i>→</i></Link>)}</div></section>
